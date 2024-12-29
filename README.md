@@ -7,8 +7,6 @@ Hues is a powerful and user-friendly tool designed for creators, designers, and 
 ### 🎨 **Custom Color Palettes**  
 
 Easily create, edit, and organize personalized color palettes for any project.  
-
-- Save palettes to your account for easy access.  
 - Explore color theory rules like complementary, triadic, and analogous colors.  
 
 ### 🖼️ **Image-to-Palette Extraction**  

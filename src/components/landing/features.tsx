@@ -1,7 +1,7 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge';
 
 export const Features = () => (
-  <div className="w-full py-20 font-raleway">
+  <div className="w-full py-20 font-nunito">
     <div className="container mx-auto px-8">
       <div className="flex flex-col gap-10">
         {/* Header Section */}
@@ -11,10 +11,11 @@ export const Features = () => (
           </div>
           <div className="flex gap-2 flex-col">
             <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-              Empowering Your Creativity with Palettr
+              Empowering Your Creativity with Hues
             </h2>
             <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">
-              Explore, create, and share stunning color palettes with powerful tools designed for designers and developers.
+              Explore, create, and share stunning color palettes with powerful
+              tools designed for designers and developers.
             </p>
           </div>
         </div>
@@ -26,7 +27,8 @@ export const Features = () => (
             <div className="bg-muted rounded-md aspect-video mb-2"></div>
             <h3 className="text-xl tracking-tight">Custom Color Palettes</h3>
             <p className="text-muted-foreground text-base">
-              Use an intuitive color picker to create personalized palettes tailored to your needs.
+              Use an intuitive color picker to create personalized palettes
+              tailored to your needs.
             </p>
           </div>
 
@@ -35,7 +37,8 @@ export const Features = () => (
             <div className="bg-muted rounded-md aspect-video mb-2"></div>
             <h3 className="text-xl tracking-tight">Color Theory Integration</h3>
             <p className="text-muted-foreground text-base">
-              Generate palettes based on color theory rules like complementary, triadic, and analogous.
+              Generate palettes based on color theory rules like complementary,
+              triadic, and analogous.
             </p>
           </div>
 
@@ -44,7 +47,8 @@ export const Features = () => (
             <div className="bg-muted rounded-md aspect-video mb-2"></div>
             <h3 className="text-xl tracking-tight">Image-to-Palette</h3>
             <p className="text-muted-foreground text-base">
-              Upload images to extract dominant colors and create matching palettes automatically.
+              Upload images to extract dominant colors and create matching
+              palettes automatically.
             </p>
           </div>
 
@@ -53,7 +57,8 @@ export const Features = () => (
             <div className="bg-muted rounded-md aspect-video mb-2"></div>
             <h3 className="text-xl tracking-tight">Gradient Maker</h3>
             <p className="text-muted-foreground text-base">
-              Design and customize gradients to bring depth and vibrancy to your projects.
+              Design and customize gradients to bring depth and vibrancy to your
+              projects.
             </p>
           </div>
 
@@ -62,7 +67,8 @@ export const Features = () => (
             <div className="bg-muted rounded-md aspect-video mb-2"></div>
             <h3 className="text-xl tracking-tight">Contrast Checker</h3>
             <p className="text-muted-foreground text-base">
-              Ensure accessibility with built-in tools for verifying contrast and readability.
+              Ensure accessibility with built-in tools for verifying contrast
+              and readability.
             </p>
           </div>
 
@@ -71,7 +77,8 @@ export const Features = () => (
             <div className="bg-muted rounded-md aspect-video mb-2"></div>
             <h3 className="text-xl tracking-tight">Shadcn Themes</h3>
             <p className="text-muted-foreground text-base">
-              Export your palettes as Shadcn themes for seamless integration into your projects.
+              Export your palettes as Shadcn themes for seamless integration
+              into your projects.
             </p>
           </div>
         </div>

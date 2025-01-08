@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        raleway: 'var(--font-raleway)',
+        nunito: 'var(--font-nunito)',
       },
       colors: {
         background: 'hsl(var(--background))',

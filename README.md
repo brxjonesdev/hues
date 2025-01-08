@@ -1,84 +1,84 @@
-# Palettr  
+# Palettr
 
-Palettr is a powerful and user-friendly tool designed for creators, designers, and developers. It simplifies the process of creating and managing color palettes, gradients, and design assets while ensuring accessibility and seamless integration with modern frameworks.  
+Palettr is a powerful and user-friendly tool designed for creators, designers, and developers. It simplifies the process of creating and managing color palettes, gradients, and design assets while ensuring accessibility and seamless integration with modern frameworks.
 
-## Features  
+## Features
 
-### 🎨 **Custom Color Palettes**  
+### 🎨 **Custom Color Palettes**
 
-Easily create, edit, and organize personalized color palettes for any project.  
+Easily create, edit, and organize personalized color palettes for any project.
 
-- Save palettes to your account for easy access.  
-- Explore color theory rules like complementary, triadic, and analogous colors.  
+- Save palettes to your account for easy access.
+- Explore color theory rules like complementary, triadic, and analogous colors.
 
-### 🖼️ **Image-to-Palette Extraction**  
+### 🖼️ **Image-to-Palette Extraction**
 
-Upload images and extract dominant colors to build palettes inspired by your visuals.  
+Upload images and extract dominant colors to build palettes inspired by your visuals.
 
-### 🌈 **Gradient Maker**  
+### 🌈 **Gradient Maker**
 
-Design beautiful gradients with intuitive tools for selecting colors, setting angles, and exporting results.  
+Design beautiful gradients with intuitive tools for selecting colors, setting angles, and exporting results.
 
-### ✅ **Contrast Checker**  
+### ✅ **Contrast Checker**
 
-Ensure accessibility compliance with WCAG standards by validating color contrast.  
+Ensure accessibility compliance with WCAG standards by validating color contrast.
 
-### 🌟 **Shadcn Themes Export**  
+### 🌟 **Shadcn Themes Export**
 
-Export your palettes as Shadcn-compatible themes for direct use in projects.  
+Export your palettes as Shadcn-compatible themes for direct use in projects.
 
-### 📊 **Real-Time Collaboration**  
+### 📊 **Real-Time Collaboration**
 
-Work collaboratively with teammates to craft stunning designs, all in real-time.  
+Work collaboratively with teammates to craft stunning designs, all in real-time.
 
-## Tech Stack  
+## Tech Stack
 
-- **Frontend**: Next.js, TailwindCSS  
-- **Backend**: Node.js, Express  
-- **Database**: MongoDB (via Mongoose)  
-- **Real-Time Collaboration**: WebSockets  
-- **Accessibility Tools**: WCAG Validators  
-
----
-
-## Contributing  
-
-We welcome contributions to Palettr! Here's how you can help:  
-
-1. Fork the repository.  
-2. Create a feature branch:  
-
-   ```bash  
-   git checkout -b feature/your-feature-name  
-   ```  
-
-3. Commit your changes:  
-
-   ```bash  
-   git commit -m "Add your message here"  
-   ```  
-
-4. Push to the branch:  
-
-   ```bash  
-   git push origin feature/your-feature-name  
-   ```  
-
-5. Open a pull request.  
+- **Frontend**: Next.js, TailwindCSS
+- **Backend**: Node.js, Express
+- **Database**: MongoDB (via Mongoose)
+- **Real-Time Collaboration**: WebSockets
+- **Accessibility Tools**: WCAG Validators
 
 ---
 
-## License  
+## Contributing
 
-Palettr is licensed under the **MIT License**. See the `LICENSE` file for details.  
+We welcome contributions to Palettr! Here's how you can help:
+
+1. Fork the repository.
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m "Add your message here"
+   ```
+
+4. Push to the branch:
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. Open a pull request.
 
 ---
 
-## Acknowledgments  
+## License
 
-- Built with ❤️ by brxjonesdev.  
-- Inspired by tools like Coolors, Gradient.io, and TailwindUI.  .  
+Palettr is licensed under the **MIT License**. See the `LICENSE` file for details.
 
 ---
 
-Enjoy creating with **Palettr**! 🎨  
+## Acknowledgments
+
+- Built with ❤️ by brxjonesdev.
+- Inspired by tools like Coolors, Gradient.io, and TailwindUI. .
+
+---
+
+Enjoy creating with **Palettr**! 🎨

@@ -1,15 +1,13 @@
-# Palettr
+# Hues
 
-Palettr is a powerful and user-friendly tool designed for creators, designers, and developers. It simplifies the process of creating and managing color palettes, gradients, and design assets while ensuring accessibility and seamless integration with modern frameworks.
+Hues is a powerful and user-friendly tool designed for creators, designers, and developers. It simplifies the process of creating and managing color palettes, gradients, and design assets while ensuring accessibility and seamless integration with modern frameworks.  
 
 ## Features
 
 ### 🎨 **Custom Color Palettes**
 
-Easily create, edit, and organize personalized color palettes for any project.
-
-- Save palettes to your account for easy access.
-- Explore color theory rules like complementary, triadic, and analogous colors.
+Easily create, edit, and organize personalized color palettes for any project.  
+- Explore color theory rules like complementary, triadic, and analogous colors.  
 
 ### 🖼️ **Image-to-Palette Extraction**
 
@@ -25,19 +23,7 @@ Ensure accessibility compliance with WCAG standards by validating color contrast
 
 ### 🌟 **Shadcn Themes Export**
 
-Export your palettes as Shadcn-compatible themes for direct use in projects.
-
-### 📊 **Real-Time Collaboration**
-
-Work collaboratively with teammates to craft stunning designs, all in real-time.
-
-## Tech Stack
-
-- **Frontend**: Next.js, TailwindCSS
-- **Backend**: Node.js, Express
-- **Database**: MongoDB (via Mongoose)
-- **Real-Time Collaboration**: WebSockets
-- **Accessibility Tools**: WCAG Validators
+Export your palettes as Shadcn-compatible themes for direct use in projects.  
 
 ---
 

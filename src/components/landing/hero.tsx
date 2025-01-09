@@ -22,13 +22,12 @@ export default function Hero() {
             </div>
             <div className="flex flex-col gap-4 w-full max-w-md">
               <Link href="palette/generate">
-              <Button
-                size="lg"
-                className="gap-4 text-md font-semibold w-full font-nunito"
-
-              >
-                Make a Palette <Palette className="w-4 h-4" />
-              </Button>
+                <Button
+                  size="lg"
+                  className="gap-4 text-md font-semibold w-full font-nunito"
+                >
+                  Make a Palette <Palette className="w-4 h-4" />
+                </Button>
               </Link>
             </div>
           </div>

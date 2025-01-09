@@ -66,7 +66,7 @@ export default function Shades({ color }: { color: string }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className='w-full'>
+        <Button variant="outline" className="w-full">
           <SwatchBook className="h-4 w-4" />
         </Button>
       </DialogTrigger>
@@ -75,9 +75,13 @@ export default function Shades({ color }: { color: string }) {
           <DialogTitle>Color Shades and Tints</DialogTitle>
         </DialogHeader>
         <Tabs defaultValue="shades" className="w-full">
-          <TabsList className='w-full'>
-            <TabsTrigger value="shades" className='w-full'>Shades</TabsTrigger>
-            <TabsTrigger value="tints" className='w-full'>Tint</TabsTrigger>
+          <TabsList className="w-full">
+            <TabsTrigger value="shades" className="w-full">
+              Shades
+            </TabsTrigger>
+            <TabsTrigger value="tints" className="w-full">
+              Tint
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="shades">
             <ul className="grid grid-cols-5 gap-2">

@@ -6,7 +6,6 @@ import Shades from '../util/shades';
 import ContrastCheck from '../util/contrast';
 
 export default function SwatchMenu({ color }: { color: string }) {
-
   return (
     <>
       <Card className="w-full border-none *:shadow-none mt-auto font-nunito rounded-none border-black pb-2">

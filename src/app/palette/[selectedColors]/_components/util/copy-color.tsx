@@ -25,7 +25,7 @@ export default function ColorCopy({ color }: { color: string }) {
             {color}
           </CardTitle>
         </PopoverTrigger>
-        <PopoverContent side="top"  className="w-full">
+        <PopoverContent side="top" className="w-full">
           <section>
             <div>
               <Label>Copy Color as:</Label>

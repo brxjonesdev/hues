@@ -96,6 +96,19 @@ const saveItems: { title: string; href: string; description: string }[] = [
 ];
 
 export function ColorNavMenu() {
+  {
+    /*
+    What need to be done:
+    - Delete the save button and move it into the export page
+    - Turn "Generate by" into a selection of generation settings
+    - Turn "Accessibility" into a a review of the color palette
+      The review should include:
+      - Color blindness
+      - Contrast
+      - WCAG compliance
+    - Add an adjust menu for adjusting Hue, Saturation, Brightness, and Temperature.
+    */
+  }
   return (
     <NavigationMenu className="py-2">
       <NavigationMenuList>

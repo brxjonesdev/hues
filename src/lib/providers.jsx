@@ -1,15 +1,15 @@
 // context/PaletteContext.js
-"use client"
+'use client';
 import React, { createContext, useContext, useState } from 'react';
 
 // Create the context
 const PaletteContext = createContext({
-    palette: [],
-    addColor: (color) => {},
-    removeColor: (color) => {},
-    setColors: (colors) => {},
-    lockColor: (color) => {},
-    unlockColor: (color) => {},
+  palette: [],
+  addColor: (color) => {},
+  removeColor: (color) => {},
+  setColors: (colors) => {},
+  lockColor: (color) => {},
+  unlockColor: (color) => {},
 });
 
 // Create the PaletteProvider component
@@ -30,9 +30,10 @@ export const PaletteProvider = ({ children }) => {
     setPalette(colors);
   };
 
-
   return (
-    <PaletteContext.Provider value={{ palette, addColor, removeColor, setColors }}>
+    <PaletteContext.Provider
+      value={{ palette, addColor, removeColor, setColors }}
+    >
       {children}
     </PaletteContext.Provider>
   );

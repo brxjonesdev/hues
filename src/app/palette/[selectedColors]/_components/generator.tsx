@@ -4,7 +4,11 @@ import ColorSwatch from './color/swatch';
 import InvalidColors from './util/invalid-colors';
 import { usePalette } from '@/lib/providers';
 
-export default function PaletteGenerator({ initialColors }: { initialColors: string[] | boolean }) {
+export default function PaletteGenerator({
+  initialColors,
+}: {
+  initialColors: string[] | boolean;
+}) {
   const { palette, setColors } = usePalette();
 
   useEffect(() => {

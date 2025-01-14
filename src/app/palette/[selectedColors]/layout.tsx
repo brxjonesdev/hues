@@ -1,16 +1,19 @@
-import '../globals.css';
-import { ColorNavMenu } from '@/app/palette/[selectedColors]/_components/navbar';
+import '../../globals.css';
+import { ColorNavMenu } from '@/app/palette/[selectedColors]/_components/util/navbar';
 import History from '@/components/landing/history';
 import ManualGeneration from '@/components/landing/manual-generate';
 import { Share2Icon, TvMinimalIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PaletteProvider } from '@/lib/providers';
+import { PaletteProvider } from '@/lib/hooks/usePalette';
 
-export default function Layout({
+export default async function Layout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ selectedColors: string }>;
 }>) {
+  const colors = (await params).selectedColors;
   return (
     <PaletteProvider>
       <div className="flex-1 flex flex-col">
@@ -22,7 +25,7 @@ export default function Layout({
               Press Space to shuffle colors
             </p>
           </div>
-          <ColorNavMenu />
+          <ColorNavMenu colors={colors} />
         </div>
 
         {/* Main Content */}

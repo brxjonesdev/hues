@@ -2,19 +2,20 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { generateRandomHexColors } from '@/lib/colors';
+import { randomHexGeneration } from '@/lib/generation/generation-methods';
 
-export default function Generate() {
+export default function GeneratePalettePage() {
   const router = useRouter();
   const generateNewPalette = () => {
-    const colors = generateRandomHexColors();
-    const palleteSlug = `/palette/${colors.join('-').replaceAll('#', '')}`;
+    const colors = randomHexGeneration();
+    const palleteSlug = `/palette/${colors}`;
     router.push(palleteSlug);
   };
 
   React.useEffect(() => {
     generateNewPalette();
   }, []);
+
   return (
     <section className="flex-1 flex w-full justify-center items-center flex-col gap-8 font-nunito">
       <div className="loader"></div>
@@ -23,4 +24,6 @@ export default function Generate() {
       </p>
     </section>
   );
-}
+};
+
+;

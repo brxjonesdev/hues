@@ -8,11 +8,11 @@ export default function Footer() {
           {/* Brand and Description */}
           <div className="flex flex-col gap-2 items-start">
             <h2 className="text-3xl md:text-4xl tracking-tighter font-bold text-left">
-              Palettr
+              Hues
             </h2>
             <p className="text-md max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
               Discover, create, and share stunning color palettes effortlessly.
-              Palettr empowers designers and creatives to bring their vision to
+              Hues empowers designers and creatives to bring their vision to
               life.
             </p>
             <p>

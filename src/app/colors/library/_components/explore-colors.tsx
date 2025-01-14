@@ -13,18 +13,16 @@ export default function Colors() {
 function ColorGrid({ colors }) {
   return (
     <div className="grid grid-cols-12 gap-4 flex-1 overflow-y-auto">
-      {colors
-        .splice(1, 60)
-        .map(({ name, hex }, index) => (
-          <div
-            key={index}
-            className="p-2 border shadow-sm flex flex-col items-center justify-center h-32 text-center rounded-3xl transition-all duration-300 ease-in-out hover:scale-105"
-            style={{ backgroundColor: hex, color: getTextColor(hex) }}
-          >
-            <div className="text-sm font-semibold">{name}</div>
-            <div className="text-xs">{hex}</div>
-          </div>
-        ))}
+      {colors.splice(1, 60).map(({ name, hex }, index) => (
+        <div
+          key={index}
+          className="p-2 border shadow-sm flex flex-col items-center justify-center h-32 text-center rounded-3xl transition-all duration-300 ease-in-out hover:scale-105"
+          style={{ backgroundColor: hex, color: getTextColor(hex) }}
+        >
+          <div className="text-sm font-semibold">{name}</div>
+          <div className="text-xs">{hex}</div>
+        </div>
+      ))}
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function ColorSwatch({
     <div
       key={index}
       className="flex flex-1 flex-col items-center justify-center h-full "
-      style={{ backgroundColor: typeof color === 'string' ? color : undefined }}
+      style={{ backgroundColor: typeof color === 'string' ? `#${color}` : undefined }}
     >
       <div className="mt-auto opacity-10 hover:opacity-100 transition-opacity duration-300 h-full w-full flex items-center justify-center">
         <Lock size={24} />

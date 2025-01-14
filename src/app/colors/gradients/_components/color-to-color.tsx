@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function ColorToColor() {
-  return (
-    <div>ColorToColor</div>
-  )
+  return <div>ColorToColor</div>;
 }

@@ -19,14 +19,22 @@ export default function ColorLibrary() {
       </div>
       <Card className="flex-1 h-full flex flex-col mb-12">
         <CardHeader>
-          <CardDescription>Click to copy or export to generator!</CardDescription>
+          <CardDescription>
+            Click to copy or export to generator!
+          </CardDescription>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col overflow-hidden">
           <Tabs defaultValue="colors" className="w-full flex flex-col flex-1">
             <TabsList className="w-full">
-              <TabsTrigger value="colors" className="w-full">Colors</TabsTrigger>
-              <TabsTrigger value="gradients" className="w-full">Gradients</TabsTrigger>
-              <TabsTrigger value="shadcn" className="w-full">Shadcn Themes</TabsTrigger>
+              <TabsTrigger value="colors" className="w-full">
+                Colors
+              </TabsTrigger>
+              <TabsTrigger value="gradients" className="w-full">
+                Gradients
+              </TabsTrigger>
+              <TabsTrigger value="shadcn" className="w-full">
+                Shadcn Themes
+              </TabsTrigger>
             </TabsList>
             <TabsContent
               value="colors"
@@ -34,11 +42,17 @@ export default function ColorLibrary() {
             >
               <Colors />
             </TabsContent>
-            <TabsContent value="gradients" className="flex-1 bg-black/5 rounded-xl p-4">
-              <Gradients/>
+            <TabsContent
+              value="gradients"
+              className="flex-1 bg-black/5 rounded-xl p-4"
+            >
+              <Gradients />
             </TabsContent>
-            <TabsContent value="shadcn" className="flex-1 bg-black/5 rounded-xl p-4">
-              <ShadcnThemes/>
+            <TabsContent
+              value="shadcn"
+              className="flex-1 bg-black/5 rounded-xl p-4"
+            >
+              <ShadcnThemes />
             </TabsContent>
           </Tabs>
         </CardContent>

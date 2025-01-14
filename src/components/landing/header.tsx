@@ -39,7 +39,7 @@ export default function Header() {
             href="/colors/contrast"
             className="text-sm font-medium hover:underline"
           >
-            Contrast
+            Accessibility
           </Link>
           <Link
             href="/shadcn/default"

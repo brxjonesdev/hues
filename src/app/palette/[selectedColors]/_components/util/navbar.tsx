@@ -99,14 +99,14 @@ export function ColorNavMenu({ colors }: { colors: string }) {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Generation Methods</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[1fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
-                    <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                    <div className="flex h-full w-full select-none flex-col justify-end rounded-md  p-6 no-underline outline-none focus:shadow-md bg-black/80 text-white">
                       <div className="mb-2 mt-4 text-md font-medium">
                         Generation Settings
                       </div>
-                      <p className="text-xs leading-tight text-muted-foreground">
+                      <p className="text-xs leading-tight text-muted-foreground text-white">
                         Generate colors using various methods and theories.
                       </p>
                     </div>
@@ -135,7 +135,7 @@ export function ColorNavMenu({ colors }: { colors: string }) {
           <NavigationMenuItem>
             <DialogTrigger asChild>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                View Variations
+                Variations
               </NavigationMenuLink>
             </DialogTrigger>
             <DialogContent>
@@ -174,18 +174,12 @@ export function ColorNavMenu({ colors }: { colors: string }) {
               </DialogHeader>
             </DialogContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/visualizer" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Visualizer
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
+         
 
           <NavigationMenuItem>
             <DialogTrigger asChild>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Export Palette
+                Export 
               </NavigationMenuLink>
             </DialogTrigger>
             <DialogContent>

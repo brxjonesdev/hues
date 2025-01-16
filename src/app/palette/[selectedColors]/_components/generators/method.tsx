@@ -1,13 +1,11 @@
 'use client';
 import React, { useEffect } from 'react';
 import InvalidColors from '../util/invalid-colors';
-import { usePalette } from '@/lib/hooks/usePalette';
+import { usePalette } from '@/lib/generation/hooks/usePalette';
 
 export default function MethodGenerator({
-  colors,
   method
 }: {
-  colors: string[] | boolean;
     method: string | undefined;
 }) {
   const { palette, setColors } = usePalette();

@@ -1,8 +1,9 @@
 import React from 'react';
-import MethodlessGenerator from './_components/generators/methodless_generator';
-import MethodGenerator from './_components/generators/method_generator';
+import MethodlessGenerator from './_components/generators/methodless';
+import MethodGenerator from './_components/generators/method';
 import InvalidColors from './_components/util/invalid-colors';
-import { validateHexString } from '@/lib/generation/generation-utils';
+import { convertHexstring, validateHexString } from '@/lib/generation/generation-utils';
+import Generator from './_components/generators/generator';
 
 export default async function page({
   params,
@@ -19,16 +20,14 @@ export default async function page({
     // Later come back and customize this 404 page.
     return <InvalidColors/>
   }
+  const palette = convertHexstring(validatedColors as string);
 
-  console.log(validatedColors, "validatedColors");
+  // convert hexstring to ColorType here.
 
 
   return (
     <section className="flex-1 flex w-full">
-      {!method ? 
-      <MethodlessGenerator colors={validatedColors} /> : 
-      <MethodGenerator colors={validatedColors} method={method} />}
-      
+      <Generator colors={palette} method={method} />
     </section>
   );
 }

@@ -9,6 +9,7 @@ export default function GeneratePalettePage() {
   const generateNewPalette = () => {
     const colors = randomHexGeneration();
     const palleteSlug = `/palette/${colors}`;
+    console.log(palleteSlug);
     router.push(palleteSlug);
   };
 

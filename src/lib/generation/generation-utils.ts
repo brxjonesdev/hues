@@ -1,3 +1,4 @@
+import { ColorType } from "./hooks/usePalette";
 
 // Validate if a hex string represents valid hex colors and return it if valid
 export function validateHexString(hexString: string): string | false {
@@ -23,5 +24,20 @@ export function validateHexString(hexString: string): string | false {
   
     // Join hex colors with hyphens
     return hexSegments.join('-');
+  }
+
+
+  export function convertHexstring(hexString: string): ColorType[] {
+    const hexColors = hexString.split('-');
+    // Convert each hex color to a ColorType object
+    return hexColors.map((hexcode, index) => ({
+      hexcode,
+      isLocked: false,
+      index,
+    }));
+  }
+  // reverse of convertHexstring
+  export function convertColorType(colors: ColorType[]): string {
+    return colors.map(color => color.hexcode).join('-');
   }
   

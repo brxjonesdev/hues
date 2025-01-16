@@ -4,7 +4,8 @@ import History from '@/components/landing/history';
 import ManualGeneration from '@/components/landing/manual-generate';
 import { Share2Icon, TvMinimalIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PaletteProvider } from '@/lib/hooks/usePalette';
+import { PaletteProvider } from '@/lib/generation/hooks/usePalette';
+import { Separator } from '@/components/ui/separator';
 
 export default async function Layout({
   children,
@@ -18,13 +19,13 @@ export default async function Layout({
     <PaletteProvider>
       <div className="flex-1 flex flex-col">
         {/* Desktop Header */}
-        <div className="border-b border-gray-200 font-nunito justify-between px-4 items-center hidden lg:flex">
-          <div className="flex items-center gap-4">
-            <History />
-            <p className="text-sm hidden xl:block">
+        <div className="border-b border-gray-200 font-nunito  px-4 items-center hidden lg:flex gap-3">
+        <History />
+            <Separator orientation='vertical' />
+            <p className="text-sm hidden xl:block flex-1 text-center">
               Press Space to shuffle colors
             </p>
-          </div>
+          <Separator orientation='vertical' />
           <ColorNavMenu colors={colors} />
         </div>
 

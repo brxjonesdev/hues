@@ -25,6 +25,4 @@ export default function GeneratePalettePage() {
       </p>
     </section>
   );
-};
-
-;
+}

@@ -19,13 +19,13 @@ export default async function Layout({
     <PaletteProvider>
       <div className="flex-1 flex flex-col">
         {/* Desktop Header */}
-        <div className="border-b border-gray-200 font-nunito  px-4 items-center hidden lg:flex gap-3">
-        <History />
-            <Separator orientation='vertical' />
-            <p className="text-sm hidden xl:block flex-1 text-center">
-              Press Space to shuffle colors
-            </p>
-          <Separator orientation='vertical' />
+        <div className="font-syne  px-4 items-center hidden lg:flex gap-3">
+          <History />
+          <Separator orientation="vertical" />
+          <p className="text-sm hidden flex-1 max-w-3xl text-center bg-white/15 p-0 h-[70%] rounded-2xl my-2 xl:flex items-center justify-center">
+            Press Space to shuffle colors
+          </p>
+          <Separator orientation="vertical" />
           <ColorNavMenu colors={colors} />
         </div>
 

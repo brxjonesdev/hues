@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
-import { Nunito } from 'next/font/google';
+import { Inter, Syne } from 'next/font/google';
 import '@/app/globals.css';
 import Header from '@/components/landing/header';
 
-const nunito = Nunito({
-  variable: '--font-nunito',
+const syne = Syne({
+  variable: '--font-syne',
+  subsets: ['latin'],
+});
+
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 });
 
@@ -22,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.variable} antialiased h-dvh max-h-dvh flex flex-col`}
+        className={`${syne.variable} ${inter.variable} antialiased h-dvh max-h-dvh flex flex-col`}
       >
         <Header />
         {children}

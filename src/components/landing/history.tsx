@@ -16,11 +16,11 @@ export default function History() {
   };
   return (
     <div className="flex gap-2 lg:gap-4 min-w-[500px]">
-      <Button variant={'outline'} onClick={undo}>
+      <Button variant={'outline'} onClick={undo} className="w-full">
         {' '}
         <ArrowLeft /> <span className="hidden lg:block">Undo</span>
       </Button>
-      <Button variant={'outline'} onClick={redo}>
+      <Button variant={'outline'} onClick={redo} className="w-full">
         <span className="hidden lg:block">Redo</span> <ArrowRight />
       </Button>
     </div>

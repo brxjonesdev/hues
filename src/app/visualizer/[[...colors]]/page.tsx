@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function visualizer() {
-  return (
-    <div>visualizer</div>
-  )
+  return <div>visualizer</div>;
 }

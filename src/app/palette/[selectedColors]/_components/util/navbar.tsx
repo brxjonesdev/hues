@@ -30,6 +30,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import Variations from './variations';
 
 const generationMethods: {
   title: string;
@@ -90,96 +91,64 @@ const generationMethods: {
 
 export function ColorNavMenu({ colors }: { colors: string }) {
   {
-   
   }
   return (
-    <NavigationMenu className="py-2">
-      <Dialog>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Generation Methods</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[1fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <div className="flex h-full w-full select-none flex-col justify-end rounded-md  p-6 no-underline outline-none focus:shadow-md bg-black/80 text-white">
-                      <div className="mb-2 mt-4 text-md font-medium">
-                        Generation Settings
-                      </div>
-                      <p className="text-xs leading-tight text-muted-foreground text-white">
-                        Generate colors using various methods and theories.
-                      </p>
+    <NavigationMenu className="py-2 border-none font-inter">
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Generation Methods</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[1fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <div className="flex h-full w-full select-none flex-col justify-end rounded-md  p-6 no-underline outline-none focus:shadow-md bg-black/80 text-white">
+                    <div className="mb-2 mt-4 text-md font-medium">
+                      Generation Settings
                     </div>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem
-                  title="Random"
-                  href={`?`}
-                >
-                  Generate colors randomly.
-                </ListItem>
-                {generationMethods.map((item) => {
-                  return (
-                    <ListItem
-                      key={item.title}
-                      title={item.title}
-                      href={`?generation=${item.method}`}
-                    >
-                      {item.description}
-                    </ListItem>
-                  );
-                })}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <DialogTrigger asChild>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Variations
-              </NavigationMenuLink>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Are you absolutely sure?</DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger className={navigationMenuTriggerStyle()}>Adjust</DropdownMenuTrigger>
-              <DropdownMenuContent className='font-nunito'>
-                <DropdownMenuLabel>Adjust Palette</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <DialogTrigger asChild>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Accessibility
-              </NavigationMenuLink>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Are you absolutely sure?</DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </NavigationMenuItem>
-         
+                    <p className="text-xs leading-tight text-muted-foreground text-white">
+                      Generate colors using various methods and theories.
+                    </p>
+                  </div>
+                </NavigationMenuLink>
+              </li>
+              <ListItem title="Random" href={`?`}>
+                Generate colors randomly.
+              </ListItem>
+              {generationMethods.map((item) => {
+                return (
+                  <ListItem
+                    key={item.title}
+                    title={item.title}
+                    href={`?generation=${item.method}`}
+                  >
+                    {item.description}
+                  </ListItem>
+                );
+              })}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Variations />
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <DropdownMenu>
+            <DropdownMenuTrigger className={navigationMenuTriggerStyle()}>
+              Adjust
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="font-nunito">
+              <DropdownMenuLabel>Adjust Palette</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </NavigationMenuItem>
+       
 
-          <NavigationMenuItem>
+        <NavigationMenuItem>
+          <Dialog>
             <DialogTrigger asChild>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Export 
+                Export
               </NavigationMenuLink>
             </DialogTrigger>
             <DialogContent>
@@ -191,9 +160,9 @@ export function ColorNavMenu({ colors }: { colors: string }) {
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </Dialog>
+          </Dialog>
+        </NavigationMenuItem>
+      </NavigationMenuList>
     </NavigationMenu>
   );
 }

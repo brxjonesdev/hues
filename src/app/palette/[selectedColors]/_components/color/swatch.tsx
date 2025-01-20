@@ -9,10 +9,12 @@ export default function ColorSwatch({
   color,
   index,
   isLocked,
+  length,
 }: {
   color: string;
   index: number;
   isLocked: boolean;
+  length: number;
 }) {
   console.log(color, 'color', index, 'index', isLocked, 'isLocked');
   const { lockColor, unlockColor } = usePalette();
@@ -32,7 +34,8 @@ export default function ColorSwatch({
         >
           <Grip />
         </Button>
-        <MiniColorPicker value={color}
+        <MiniColorPicker
+          value={color}
           onChange={(color) => console.log(color)}
         />
         {/* <Button

@@ -96,7 +96,9 @@ export function ColorNavMenu({ colors }: { colors: string }) {
     <NavigationMenu className="py-2 border-none font-inter">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Generation Methods</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="hover:tracking-wide transition-all duration-300 ease-in-out">
+            Generation Methods
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[1fr_1fr]">
               <li className="row-span-3">
@@ -133,7 +135,9 @@ export function ColorNavMenu({ colors }: { colors: string }) {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <DropdownMenu>
-            <DropdownMenuTrigger className={navigationMenuTriggerStyle()}>
+            <DropdownMenuTrigger
+              className={`${navigationMenuTriggerStyle()} hover:tracking-wide transition-all duration-300 ease-in-out`}
+            >
               Adjust
             </DropdownMenuTrigger>
             <DropdownMenuContent className="font-nunito">
@@ -142,12 +146,13 @@ export function ColorNavMenu({ colors }: { colors: string }) {
             </DropdownMenuContent>
           </DropdownMenu>
         </NavigationMenuItem>
-       
 
         <NavigationMenuItem>
           <Dialog>
             <DialogTrigger asChild>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} hover:tracking-wide transition-all duration-300 ease-in-out`}
+              >
                 Export
               </NavigationMenuLink>
             </DialogTrigger>

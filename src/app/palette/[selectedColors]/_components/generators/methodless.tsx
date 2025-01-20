@@ -30,7 +30,7 @@ export default function MethodlessGenerator() {
   return (
     <section className="flex-1 flex w-full justify-between">
       <div className="flex flex-1 justify-between flex-col lg:flex-row">
-        <div className="flex flex-1 flex-wrap justify-center items-center flex-col lg:flex-row gap-1 px-4 pt-4 pb-10">
+        <div className="flex-1 grid grid-cols-1 lg:flex gap-4 lg:gap-2 px-4 mt-4 items-center">
           {palette.map((color: ColorType, index: number) => (
             <>
               <ColorSwatch
@@ -38,13 +38,14 @@ export default function MethodlessGenerator() {
                 color={color.hexcode}
                 index={index}
                 isLocked={color.isLocked}
+                length={palette.length}
               />
               {/* add a button only if not last of index */}
               {index !== palette.length - 1 && (
                 <Button
                   variant={'outline'}
                   onClick={() => addColorAtIndex(index)}
-                  className="  rounded-3xl h-fit w-fit p-0 py-2 px-1 transition-all duration-300 ease-in-out hover:py-7 hover:px-3.5"
+                  className="  rounded-3xl h-fit w-fit p-0 py-2 px-1 transition-all duration-300 ease-in-out hover:py-7 hover:px-3.5 hidden lg:block"
                 />
               )}
             </>

@@ -15,16 +15,15 @@ export default async function page({
 }) {
   const colors = (await params).selectedColors;
   const method = (await searchParams).generation;
-  // Validate HEX colors put into the URL manually.
+  // Check that it's not more than 6 colors.
   const validatedColors = validateHexString(colors);
+
   if (validatedColors === false) {
     // Later come back and customize this 404 page.
     return <InvalidColors />;
   }
   const palette = convertHexstring(validatedColors as string);
   console.log(palette, 'palette in page');
-
-  // convert hexstring to ColorType here.
 
   return (
     <section className="flex-1 flex w-full">

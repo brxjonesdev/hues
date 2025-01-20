@@ -19,10 +19,10 @@ export default async function Layout({
     <PaletteProvider>
       <div className="flex-1 flex flex-col">
         {/* Desktop Header */}
-        <div className="font-syne  px-4 items-center hidden lg:flex gap-3">
+        <div className="font-syne  px-4 items-center hidden lg:flex gap-3 flex-row-reverse">
           <History />
           <Separator orientation="vertical" />
-          <p className="text-sm hidden flex-1 max-w-3xl text-center bg-white/15 p-0 h-[70%] rounded-2xl my-2 xl:flex items-center justify-center">
+          <p className="text-sm hidden flex-1  text-center bg-white/15 p-0 h-[70%] rounded-2xl my-2 xl:flex items-center justify-center">
             Press Space to shuffle colors
           </p>
           <Separator orientation="vertical" />

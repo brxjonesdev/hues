@@ -17,9 +17,11 @@ import { Shade } from './variation-views';
 
 export default function Variations() {
   return (
-    <Dialog >
+    <Dialog>
       <DialogTrigger asChild>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        <NavigationMenuLink
+          className={`${navigationMenuTriggerStyle()} hover:tracking-wide transition-all duration-300 ease-in-out`}
+        >
           Variations
         </NavigationMenuLink>
       </DialogTrigger>
@@ -38,25 +40,34 @@ export default function Variations() {
                     - Color Blindness
                     - Theme
                   */}
-        
           </DialogDescription>
         </DialogHeader>
         <Tabs defaultValue="shade" className="w-full">
-              <TabsList className="w-full flex font-inter ">
-            <TabsTrigger value="shade" className="w-full">Shade</TabsTrigger>
-            <TabsTrigger value="saturation" className="w-full">Saturation</TabsTrigger>
-            <TabsTrigger value="hue" className="w-full">Hue</TabsTrigger>
-            <TabsTrigger value="luminance" className="w-full">Luminance</TabsTrigger>
-            <TabsTrigger value="temperature" className="w-full">Temperature</TabsTrigger>
-            <TabsTrigger value="colorBlindness" className="w-full">Blindness</TabsTrigger>
-              </TabsList>
-              <TabsContent value="shade">  
-                <Shade/>
-              </TabsContent>
-              <TabsContent value="password">
-                Change your password here.
-              </TabsContent>
-            </Tabs>
+          <TabsList className="w-full flex font-inter ">
+            <TabsTrigger value="shade" className="w-full">
+              Shade
+            </TabsTrigger>
+            <TabsTrigger value="saturation" className="w-full">
+              Saturation
+            </TabsTrigger>
+            <TabsTrigger value="hue" className="w-full">
+              Hue
+            </TabsTrigger>
+            <TabsTrigger value="luminance" className="w-full">
+              Luminance
+            </TabsTrigger>
+            <TabsTrigger value="temperature" className="w-full">
+              Temperature
+            </TabsTrigger>
+            <TabsTrigger value="colorBlindness" className="w-full">
+              Blindness
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="shade">
+            <Shade />
+          </TabsContent>
+          <TabsContent value="password">Change your password here.</TabsContent>
+        </Tabs>
       </DialogContent>
     </Dialog>
   );

@@ -1,37 +1,58 @@
 'use client';
-import { Palette } from 'lucide-react';
+import { Brush, Eye } from 'lucide-react';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Picker from '@/app/picker/_components/picker';
 
 export default function Hero() {
+  const [selectedColor, setSelectedColor] = React.useState<string>('#FFFFFF');
+
   return (
-    <div className="w-full py-10  font-inter">
+    <div className="w-fit">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-2">
-          <div className="flex gap-4 flex-col items-center lg:items-start">
+        <div className="grid grid-cols-1 gap-8 items-center md:grid-cols-2">
+          <div className="flex gap-4 flex-col">
             <div className="flex gap-4 flex-col">
-              <h1 className="text-5xl md:text-7xl max-w-lg tracking-tighter lg:text-left font-bold text-center">
-                Create stunning palettes effortlessly.
+              <h1 className="text-5xl md:text-7xl max-w-xl tracking-tighter text-left font-inter">
+                Create{' '}
+                <span className="font-syne tracking-wide">beautiful</span>{' '}
+                palettes with ease.
               </h1>
-              <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-md lg:text-left text-center font-medium">
-                Hues is your ultimate tool for designing, exploring, and sharing
-                color palettes. From custom gradients to ShadCN themes, we make
-                it simple to bring your creative visions to life.
+              <p className="font-inter text-xl text-left tracking-tight">
+                Explore and generate color palettes with ease with Hues.
+                <br /> Less choosing, more creating.
               </p>
             </div>
-            <div className="flex flex-col gap-4 w-full max-w-md">
-              <Link href="palette/generate">
-                <Button
-                  size="lg"
-                  className="gap-4 text-md font-semibold w-full font-nunito"
-                >
-                  Make a Palette <Palette className="w-4 h-4" />
-                </Button>
-              </Link>
+            <div className="flex flex-col font-inter">
+              <div className="flex gap-4">
+                <Link href="/palette/generate">
+                  <Button size="lg" className="gap-4" variant="outline">
+                    Generator <Brush />
+                  </Button>
+                </Link>
+                <Link href="/visualizer">
+                  <Button size="lg" className="gap-4">
+                    Visualizer <Eye />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="bg-muted rounded-md aspect-square m-6 lg:m-0"></div>
+          <div className="flex flex-col items-end">
+            <Picker
+              color={selectedColor}
+              onColorChange={(color) => setSelectedColor(color)}
+            />
+            <Link
+              href={`/picker/?color=${selectedColor.replace('#', '')}`}
+              className="font-inter"
+            >
+              <Button size="lg" className="gap-4" variant="ghost">
+                View in Color Picker
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

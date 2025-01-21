@@ -15,7 +15,7 @@ export default function History() {
     router.forward();
   };
   return (
-    <div className="flex gap-2 lg:gap-4 min-w-[500px]">
+    <div className="flex gap-2 lg:gap-4 min-w-[500px] pr-4">
       <Button variant={'outline'} onClick={undo} className="w-full">
         {' '}
         <ArrowLeft /> <span className="hidden lg:block">Undo</span>

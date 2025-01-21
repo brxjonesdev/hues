@@ -1,9 +1,7 @@
 import { ColorType } from './hooks/usePalette';
 import { generateHexString } from './generation-utils';
-
 export function randomHexGeneration(currentColors?: ColorType[]) {
   if (currentColors) {
-    // change all of the hexcodes to a new random hexcode, skippig the locked ones
     const newColors = currentColors.map((color) => {
       if (color.isLocked) {
         return color;
@@ -17,7 +15,7 @@ export function randomHexGeneration(currentColors?: ColorType[]) {
     return newColors;
   }
   if (!currentColors) {
-    const length = Math.floor(Math.random() * 6) + 3;
+    const length = Math.floor(Math.random() * 4) + 3;
     const colors = generateHexString(length);
     return colors;
   }

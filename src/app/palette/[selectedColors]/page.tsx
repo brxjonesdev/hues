@@ -15,14 +15,12 @@ export default async function page({
 }) {
   const colors = (await params).selectedColors;
   const method = (await searchParams).generation;
-  // Check that it's not more than 6 colors.
   const validatedColors = validateHexString(colors);
-
-  if (validatedColors === false) {
-    // Later come back and customize this 404 page.
-    return <InvalidColors />;
+  if (validatedColors.error) {
+    return <InvalidColors error={validatedColors.error} />;
   }
-  const palette = convertHexstring(validatedColors as string);
+
+  const palette = convertHexstring(validatedColors.value as string);
   console.log(palette, 'palette in page');
 
   return (

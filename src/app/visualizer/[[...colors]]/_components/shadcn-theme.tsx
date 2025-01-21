@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function ShadcnUITheme() {
-  return (
-    <div>ShadcnUITheme</div>
-  )
+  return <div>ShadcnUITheme</div>;
 }

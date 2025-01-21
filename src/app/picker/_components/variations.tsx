@@ -1,21 +1,29 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import VariationsPalette from './variations-palette';
+import VariationsPalette from './palette-display';
+import {
+  generateHues,
+  generateShades,
+  generateTemperature,
+  generateTints,
+  generateTones,
+} from '@/lib/single-color-conversions/variations';
+import { Palette } from 'lucide-react';
+import PaletteDisplay from './palette-display';
 
 export default function Variations({ color }: { color: string }) {
   const variations = [
-    { name: 'Shades', value: 'shades', component: null },
-    { name: 'Tints', value: 'tints', component: null },
-    { name: 'Tones', value: 'tones', component: null },
-    { name: 'Hues', value: 'hues', component: null },
-    {name: 'Temperature', value: 'temperature', component: null},
-  ]
+    { name: 'Shades', value: 'shades', function: generateShades(color) },
+    { name: 'Tints', value: 'tints', function: generateTints(color) },
+    { name: 'Tones', value: 'tones', function: generateTones(color) },
+    { name: 'Hues', value: 'hues', function: generateHues(color) },
+    {
+      name: 'Temperature',
+      value: 'temperature',
+      function: generateTemperature(color),
+    },
+  ];
   return (
     <Card>
       <CardHeader>
@@ -23,9 +31,13 @@ export default function Variations({ color }: { color: string }) {
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="shades" className="w-full font-inter h-full">
-          <TabsList className='w-full flex-wrap h-full gap-2 lg:flex-nowrap'>
+          <TabsList className="w-full flex-wrap h-full gap-2 lg:flex-nowrap">
             {variations.map((variation) => (
-              <TabsTrigger key={variation.value} value={variation.value} className='w-full'>
+              <TabsTrigger
+                key={variation.value}
+                value={variation.value}
+                className="w-full"
+              >
                 {variation.name}
               </TabsTrigger>
             ))}
@@ -33,7 +45,7 @@ export default function Variations({ color }: { color: string }) {
           {variations.map((variation) => {
             return (
               <TabsContent key={variation.value} value={variation.value}>
-                <VariationsPalette color={color} variation={variation.value} />
+                <PaletteDisplay data={variation.function} />
               </TabsContent>
             );
           })}

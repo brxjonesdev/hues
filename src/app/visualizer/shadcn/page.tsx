@@ -1,60 +1,69 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-
-
-
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 type ColorKey =
-  | "background"
-  | "foreground"
-  | "card"
-  | "card-foreground"
-  | "primary"
-  | "primary-foreground"
-  | "secondary"
-  | "secondary-foreground"
-  | "accent"
-  | "accent-foreground"
-  | "destructive"
-  | "destructive-foreground"
-  | "muted"
-  | "muted-foreground"
+  | 'background'
+  | 'foreground'
+  | 'card'
+  | 'card-foreground'
+  | 'primary'
+  | 'primary-foreground'
+  | 'secondary'
+  | 'secondary-foreground'
+  | 'accent'
+  | 'accent-foreground'
+  | 'destructive'
+  | 'destructive-foreground'
+  | 'muted'
+  | 'muted-foreground';
 
 const defaultColors: Record<ColorKey, string> = {
-  background: "#ffffff",
-  foreground: "#020817",
-  card: "#ffffff",
-  "card-foreground": "#020817",
-  primary: "#0f172a",
-  "primary-foreground": "#f8fafc",
-  secondary: "#f1f5f9",
-  "secondary-foreground": "#0f172a",
-  accent: "#f1f5f9",
-  "accent-foreground": "#0f172a",
-  destructive: "#ef4444",
-  "destructive-foreground": "#f8fafc",
-  muted: "#f1f5f9",
-  "muted-foreground": "#64748b",
-}
+  background: '#ffffff',
+  foreground: '#020817',
+  card: '#ffffff',
+  'card-foreground': '#020817',
+  primary: '#0f172a',
+  'primary-foreground': '#f8fafc',
+  secondary: '#f1f5f9',
+  'secondary-foreground': '#0f172a',
+  accent: '#f1f5f9',
+  'accent-foreground': '#0f172a',
+  destructive: '#ef4444',
+  'destructive-foreground': '#f8fafc',
+  muted: '#f1f5f9',
+  'muted-foreground': '#64748b',
+};
 
 export default function ThemeGenerator() {
-  const [colors, setColors] = useState<Record<ColorKey, string>>(defaultColors)
-  const [activeColor, setActiveColor] = useState<ColorKey | null>(null)
+  const [colors, setColors] = useState<Record<ColorKey, string>>(defaultColors);
+  const [activeColor, setActiveColor] = useState<ColorKey | null>(null);
 
   const handleColorChange = (color: string) => {
     if (activeColor) {
       setColors((prevColors) => ({
         ...prevColors,
         [activeColor]: color,
-      }))
+      }));
     }
-  }
+  };
 
   const generateThemeCSS = () => {
     return `
@@ -62,33 +71,33 @@ export default function ThemeGenerator() {
   --background: ${colors.background};
   --foreground: ${colors.foreground};
   --card: ${colors.card};
-  --card-foreground: ${colors["card-foreground"]};
+  --card-foreground: ${colors['card-foreground']};
   --primary: ${colors.primary};
-  --primary-foreground: ${colors["primary-foreground"]};
+  --primary-foreground: ${colors['primary-foreground']};
   --secondary: ${colors.secondary};
-  --secondary-foreground: ${colors["secondary-foreground"]};
+  --secondary-foreground: ${colors['secondary-foreground']};
   --accent: ${colors.accent};
-  --accent-foreground: ${colors["accent-foreground"]};
+  --accent-foreground: ${colors['accent-foreground']};
   --destructive: ${colors.destructive};
-  --destructive-foreground: ${colors["destructive-foreground"]};
+  --destructive-foreground: ${colors['destructive-foreground']};
   --muted: ${colors.muted};
-  --muted-foreground: ${colors["muted-foreground"]};
+  --muted-foreground: ${colors['muted-foreground']};
 }
-    `
-  }
+    `;
+  };
 
   const handleExport = () => {
-    const css = generateThemeCSS()
-    const blob = new Blob([css], { type: "text/css" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = "shadcn-theme.css"
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }
+    const css = generateThemeCSS();
+    const blob = new Blob([css], { type: 'text/css' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'shadcn-theme.css';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -106,7 +115,10 @@ export default function ThemeGenerator() {
                   <AccordionTrigger>{colorKey}</AccordionTrigger>
                   <AccordionContent>
                     <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 rounded border" style={{ backgroundColor: colors[colorKey] }} />
+                      <div
+                        className="w-6 h-6 rounded border"
+                        style={{ backgroundColor: colors[colorKey] }}
+                      />
                       <Input
                         value={colors[colorKey]}
                         onChange={(e) => handleColorChange(e.target.value)}
@@ -125,9 +137,10 @@ export default function ThemeGenerator() {
         <Card>
           <CardHeader>
             <CardTitle>Color Picker</CardTitle>
-            <CardDescription>Pick a color for the selected theme variable</CardDescription>
+            <CardDescription>
+              Pick a color for the selected theme variable
+            </CardDescription>
           </CardHeader>
-         
         </Card>
       </div>
       <Card className="mt-4">
@@ -147,6 +160,5 @@ export default function ThemeGenerator() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-

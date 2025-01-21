@@ -27,10 +27,10 @@ export default function ColorSwatch({
         backgroundColor: typeof color === 'string' ? `#${color}` : undefined,
       }}
     >
-      <div className="font-inter  flex items-center justify-between flex-col gap-3  p-2  lg:mt-auto lg:mb-12">
+      <div className="font-inter w-full px-8 flex items-center justify-between lg:flex-col gap-3  p-2  lg:mt-auto lg:mb-12">
         <Button
           variant={'outline'}
-          className="bg-transparent border-black/10 hover:bg-black/20 w-full shadow-none mb-6 hidden lg:block text-center"
+          className=" border-black/10 bg-black/20 hover:bg-black/30 w-full shadow-none mb-6 hidden xl:block text-center"
         >
           <Grip />
         </Button>
@@ -38,28 +38,14 @@ export default function ColorSwatch({
           value={color}
           onChange={(color) => console.log(color)}
         />
-        {/* <Button
-          variant={'link'}
-          className="text-3xl lg:text-5xl font-bold uppercase text-black/70 border-black/10"
-        >
-          {color}
-        </Button> */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 text-black/70">
           <Button
             size="icon"
             variant="outline"
-            className="bg-transparent border-transparent shadow-none hover:bg-black/20"
+            className="bg-transparent border-transparent shadow-none hover:bg-black/20 "
             onClick={() => (isLocked ? unlockColor(index) : lockColor(index))}
           >
             {isLocked ? <Lock size={36} /> : <Unlock size={36} />}
-          </Button>
-
-          <Button
-            size={'icon'}
-            variant={'outline'}
-            className="bg-transparent border-transparent shadow-none hover:bg-black/20"
-          >
-            <Heart />
           </Button>
           <Button
             size={'icon'}
@@ -68,13 +54,7 @@ export default function ColorSwatch({
           >
             <SwatchBook />
           </Button>
-          <Button
-            size={'icon'}
-            variant={'outline'}
-            className="bg-transparent border-transparent shadow-none hover:bg-black/20"
-          >
-            <Copy />
-          </Button>
+
           <Button
             size={'icon'}
             variant={'outline'}
@@ -83,7 +63,7 @@ export default function ColorSwatch({
             <X />
           </Button>
         </div>
-        <Separator className="bg-black/20" />
+        <Separator className="bg-black/20 hidden lg:block" />
       </div>
     </div>
   );

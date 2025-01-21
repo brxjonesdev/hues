@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/popover';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/utils';
 
 interface ColorPickerProps {
   value: string;
@@ -122,7 +122,7 @@ export default function MiniColorPicker({
             className
           )}
         >
-          <span className="text-3xl lg:text-5xl font-bold uppercase text-black/70 border-black/10">
+          <span className="text-2xl md:text-5xl xl:text-3xl font-bold uppercase text-black/70 border-black/10">
             {value}
           </span>
         </button>

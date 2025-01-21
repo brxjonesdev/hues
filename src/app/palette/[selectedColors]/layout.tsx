@@ -6,6 +6,7 @@ import { Share2Icon, TvMinimalIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PaletteProvider } from '@/lib/generation/hooks/usePalette';
 import { Separator } from '@/components/ui/separator';
+import MobileMenu from './_components/util/mobile-menu';
 
 export default async function Layout({
   children,
@@ -19,7 +20,7 @@ export default async function Layout({
     <PaletteProvider>
       <div className="flex-1 flex flex-col">
         {/* Desktop Header */}
-        <div className="font-syne  px-4 items-center hidden lg:flex gap-3 flex-row-reverse">
+        <div className="font-syne  px-4 items-center hidden xl:flex gap-3 flex-row-reverse">
           <History />
           <Separator orientation="vertical" />
           <p className="text-sm hidden flex-1  text-center bg-white/15 p-0 h-[70%] rounded-2xl my-2 xl:flex items-center justify-center">
@@ -33,18 +34,7 @@ export default async function Layout({
         {children}
 
         {/* Mobile Footer */}
-        <div className="relative bottom-0 w-full flex items-center justify-between font-nunito font-semibold text-2xl gap-2 lg:hidden p-3">
-          <ManualGeneration />
-          <div className="flex gap-4">
-            <History />
-            <Button>
-              <Share2Icon />
-            </Button>
-            <Button>
-              <TvMinimalIcon />
-            </Button>
-          </div>
-        </div>
+        <MobileMenu />
       </div>
     </PaletteProvider>
   );

@@ -16,7 +16,7 @@ export type ColorType = {
 const PaletteContext = createContext<{
   palette: ColorType[];
   setColors: (colors: ColorType[]) => void;
-  addColorAtIndex: (index: number) => void;
+  addColorAtIndex: (index: number, palette: ColorType[]) => void;
   lockColor: (index: number) => void;
   unlockColor: (index: number) => void;
 }>({
@@ -35,7 +35,10 @@ export const PaletteProvider = ({ children }: { children: ReactNode }) => {
     setPalette(colors);
   };
 
-  const addColorAtIndex = (index: number) => {
+  const addColorAtIndex = (index: number, palette: ColorType[]) => {
+    if (palette.length >= 6) {
+      return { error: 'Palette is full' };
+    }
     const indexToInsert = index + 1;
     const newColor: string = convertHexstring(generateHexString(1))[0].hexcode;
     console.log(`${newColor} added at index ${indexToInsert}`);

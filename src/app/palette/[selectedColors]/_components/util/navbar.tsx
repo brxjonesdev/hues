@@ -4,7 +4,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/utils';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -22,15 +22,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import Variations from './variations';
+import Visualize from './visualize';
+import { Separator } from '@/components/ui/separator';
+import ExportPalette from './export';
 
 const generationMethods: {
   title: string;
@@ -89,9 +83,16 @@ const generationMethods: {
   },
 ];
 
+// 7. Visualize menu
+// - View Color Palette with color data
+// - View different color blindness simulations
+
+// 8. Export Menu
+// - Export to CSS, SCSS, Tailwind, URL
+
+// -> Generation Methods
+
 export function ColorNavMenu({ colors }: { colors: string }) {
-  {
-  }
   return (
     <NavigationMenu className="py-2 border-none font-inter">
       <NavigationMenuList>
@@ -131,20 +132,22 @@ export function ColorNavMenu({ colors }: { colors: string }) {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Variations />
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              className={`${navigationMenuTriggerStyle()} hover:tracking-wide transition-all duration-300 ease-in-out`}
-            >
-              Adjust
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="font-nunito">
-              <DropdownMenuLabel>Adjust Palette</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Dialog>
+            <DialogTrigger asChild>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} hover:tracking-wide transition-all duration-300 ease-in-out`}
+              >
+                Visualize
+              </NavigationMenuLink>
+            </DialogTrigger>
+            <DialogContent className="font-inter w-full max-w-xl px-4 mx-4">
+              <DialogHeader>
+                <DialogTitle>View your Palette</DialogTitle>
+              </DialogHeader>
+              <Separator />
+              <Visualize />
+            </DialogContent>
+          </Dialog>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
@@ -156,14 +159,14 @@ export function ColorNavMenu({ colors }: { colors: string }) {
                 Export
               </NavigationMenuLink>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="font-inter">
               <DialogHeader>
-                <DialogTitle>Are you absolutely sure?</DialogTitle>
+                <DialogTitle>Export Your Palette</DialogTitle>
                 <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
+                  Export your palette to CSS, SCSS, Tailwind, or a URL.
                 </DialogDescription>
               </DialogHeader>
+              <ExportPalette />
             </DialogContent>
           </Dialog>
         </NavigationMenuItem>

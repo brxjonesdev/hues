@@ -8,7 +8,7 @@ export default function LandingPage() {
   // fix style loss if it becomes a problem
   return (
     <>
-      <section className="mx-auto max-w-7xl flex flex-col py-16">
+      <section className="mx-auto max-w-7xl flex flex-col py-16 px-4">
         <Hero />
         <Features />
       </section>

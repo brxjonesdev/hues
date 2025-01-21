@@ -3,15 +3,13 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useRouter } from 'next/navigation';
+import { Form } from '@/components/ui/form';
 // Picker should be able to update the URL's search param for color
 
-export default function Picker({
-  color,
-  onColorChange,
-}: {
-  color: string;
-  onColorChange: (color: string) => void;
-}) {
+export default function Picker({ color }: { color: string }) {
+  const router = useRouter();
+  const [selectedColor, setSelectedColor] = useState(color);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hue, setHue] = useState(0);
@@ -31,10 +29,6 @@ export default function Picker({
     const s = max === 0 ? 0 : 1 - min / max;
     setPosition({ x: s, y: 1 - v });
   }, []);
-
-  useEffect(() => {
-    // set url to color
-  }, [color]);
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -78,7 +72,8 @@ export default function Picker({
     const s = x * 100;
     const v = (1 - y) * 100;
     const color = HSVtoHex(h, s, v);
-    onColorChange(color);
+    setSelectedColor(color);
+    router.push(`picker/?color=${color.replace('#', '')}`);
   };
 
   const HSVtoHex = (h: number, s: number, v: number) => {
@@ -114,17 +109,16 @@ export default function Picker({
 
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
   };
-
   return (
     <div className="p-4 w-full mx-auto">
       <Card className="relative overflow-hidden">
         <CardContent
           className="h-48 flex items-center justify-center p-0"
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: `${selectedColor}` }}
         >
           <p className="text-[3vw] font-inter font-bold text-black/50">
-          {/* Color should be white or black based on contrast */}
-            {color}
+            {/* Color should be white or black based on contrast */}
+            {selectedColor}
           </p>
         </CardContent>
       </Card>
@@ -147,7 +141,7 @@ export default function Picker({
             style={{
               left: `${position.x * 100}%`,
               top: `${position.y * 100}%`,
-              backgroundColor: color,
+              backgroundColor: selectedColor,
             }}
           />
         </div>
@@ -167,10 +161,6 @@ export default function Picker({
 
         <div className="flex gap-2"></div>
       </div>
-      {/* 
-      Add HSB, HSL, RGB, CMYK, LAB, RAL, HKS, Copic, Pantone & Prismacolor selectors
-      
-      */}
     </div>
   );
 }

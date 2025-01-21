@@ -1,13 +1,10 @@
-import { Menu, PaletteIcon, SwatchBook } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import { Button } from '../ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Separator } from '../ui/separator';
+import Logo from '@/lib/blusuede.png';
 
 export default function Header() {
   return (
-    <section className="p-3 lg:px-8 border-b border-white/10  justify-between items-center hidden lg:flex">
+    <section className="p-3 lg:px-8 border-b border-white/10  justify-between items-center flex">
       <div>
         <Link
           href="/"
@@ -16,7 +13,15 @@ export default function Header() {
           Hues
         </Link>
       </div>
-      <div></div>
+      <div className="flex items-center gap-2">
+        <p className="font-syne text-md">Made by</p>
+        <a href="https://portfolio.braxtonjones.dev/">
+          <img
+            className="aspect-square h-8 w-8 hover:rainbow-bg p-0.5 rounded-full cursor-pointer"
+            src={Logo.src}
+          />
+        </a>
+      </div>
     </section>
   );
 }

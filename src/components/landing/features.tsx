@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge';
 
 export const Features = () => (
   <div className="w-full py-20 font-syne">
-    <div className="container mx-auto px-8">
+    <div className="container mx-auto">
       <div className="flex flex-col gap-10">
         {/* Header Section */}
         <div className="flex gap-4 flex-col items-start">
@@ -39,36 +39,6 @@ export const Features = () => (
             <p className="text-muted-foreground text-base">
               Generate palettes based on color theory rules like complementary,
               triadic, and analogous.
-            </p>
-          </div>
-
-          {/* Image-to-Palette */}
-          <div className="flex flex-col gap-2">
-            <div className="bg-muted rounded-md aspect-video mb-2"></div>
-            <h3 className="text-xl tracking-tight">Image-to-Palette</h3>
-            <p className="text-muted-foreground text-base">
-              Upload images to extract dominant colors and create matching
-              palettes automatically.
-            </p>
-          </div>
-
-          {/* Gradient Maker */}
-          <div className="flex flex-col gap-2">
-            <div className="bg-muted rounded-md aspect-video mb-2"></div>
-            <h3 className="text-xl tracking-tight">Gradient Maker</h3>
-            <p className="text-muted-foreground text-base">
-              Design and customize gradients to bring depth and vibrancy to your
-              projects.
-            </p>
-          </div>
-
-          {/* Contrast Checker */}
-          <div className="flex flex-col gap-2">
-            <div className="bg-muted rounded-md aspect-video mb-2"></div>
-            <h3 className="text-xl tracking-tight">Contrast Checker</h3>
-            <p className="text-muted-foreground text-base">
-              Ensure accessibility with built-in tools for verifying contrast
-              and readability.
             </p>
           </div>
 

@@ -1,14 +1,25 @@
 import { ColorType } from './hooks/usePalette';
 
 // Validate if a hex string represents valid hex colors and return it if valid
-export function validateHexString(hexString: string): string | false {
+export function validateHexString(hexString: string): {
+  error: string | null;
+  value: string | null;
+} {
   const hexColors = hexString.split('-');
   const hexColorRegex = /^[0-9a-fA-F]{6}$/;
+  console.log(hexColors, 'hexColors');
+  if (hexColors.length > 6) {
+    return {
+      error: 'Only 6 colors are allowed. Please check the url.',
+      value: null,
+    };
+  }
 
   // Return hex string if all colors are valid, otherwise return false
-  return hexColors.every((color) => hexColorRegex.test(color))
-    ? hexString
-    : false;
+  const isValid = hexColors.every((color) => hexColorRegex.test(color));
+  return isValid
+    ? { error: null, value: hexString }
+    : { error: 'Invalid hex color found.', value: null };
 }
 
 // Function to generate a hex string of a given length with valid hex colors
@@ -43,4 +54,43 @@ export function convertHexstring(
 // reverse of convertHexstring
 export function convertColorType(colors: ColorType[]): string {
   return colors.map((color) => color.hexcode).join('-');
+}
+
+export function applyColorBlindness(palette: ColorType[], variation: string) {
+  if (variation === 'Normal') {
+    return palette;
+  }
+
+  switch (variation) {
+    case 'Protanopia':
+      // Add logic for Protanopia
+      return palette;
+    case 'Deuteranopia':
+      // Add logic for Deuteranopia
+      return palette;
+    case 'Tritanopia':
+      // Add logic for Tritanopia
+      return palette;
+    case 'Achromatopsia':
+      // Add logic for Achromatopsia
+      return palette;
+    case 'Achromatomaly':
+      // Add logic for Achromatomaly
+      return palette;
+    case 'Deuteranomaly':
+      // Add logic for Deuteranomaly
+      return palette;
+    case 'Protanomaly':
+      // Add logic for Protanomaly
+      return palette;
+    case 'Tritanomaly':
+      // Add logic for Tritanomaly
+      return palette;
+    default:
+      return palette;
+  }
+}
+
+export function generateExport(method: string, palette: ColorType[]) {
+  return palette;
 }

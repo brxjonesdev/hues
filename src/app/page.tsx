@@ -1,5 +1,5 @@
 import Footer from '@/components/landing/footer';
-import { Features } from '../components/landing/features';
+
 import Hero from '../components/landing/hero';
 
 export default function LandingPage() {
@@ -10,7 +10,6 @@ export default function LandingPage() {
     <>
       <section className="mx-auto  flex flex-col flex-1 w-full pt-20">
         <Hero />
-        <Features />
       </section>
       <Footer />
     </>

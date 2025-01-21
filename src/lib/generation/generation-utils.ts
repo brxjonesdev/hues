@@ -53,7 +53,7 @@ export function convertHexstring(
 
 // reverse of convertHexstring
 export function convertColorType(colors: ColorType[]): string {
-  return colors.map((color) => color.hexcode).join('-');
+  return colors.map((color) => color.hexcode.replace("#", "")).join("-");
 }
 
 export function generateExport(method: string, palette: ColorType[]) {

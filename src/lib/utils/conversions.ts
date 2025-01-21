@@ -1,3 +1,5 @@
+import { ColorType } from "../generation/hooks/usePalette";
+
 export function HexToRGB(hex: string): string {
   const hexCode = hex.replace('#', '');
   const r = parseInt(hexCode.substring(0, 2), 16);
@@ -95,4 +97,14 @@ export function HexToLAB(hex: string): string {
   const a = 500 * (lab(x) - lab(y));
   const bVal = 200 * (lab(y) - lab(z));
   return `lab(${Math.round(l)}, ${Math.round(a)}, ${Math.round(bVal)})`;
+}
+
+
+// Add color blindness conversion functions here
+export function applyColorBlindness(palette: ColorType[], variation: string): ColorType[]{
+  return palette;
+}
+
+export function generateCode(palette: ColorType[], format: string): {} {
+  return '';
 }

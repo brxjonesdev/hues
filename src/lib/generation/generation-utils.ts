@@ -56,41 +56,6 @@ export function convertColorType(colors: ColorType[]): string {
   return colors.map((color) => color.hexcode).join('-');
 }
 
-export function applyColorBlindness(palette: ColorType[], variation: string) {
-  if (variation === 'Normal') {
-    return palette;
-  }
-
-  switch (variation) {
-    case 'Protanopia':
-      // Add logic for Protanopia
-      return palette;
-    case 'Deuteranopia':
-      // Add logic for Deuteranopia
-      return palette;
-    case 'Tritanopia':
-      // Add logic for Tritanopia
-      return palette;
-    case 'Achromatopsia':
-      // Add logic for Achromatopsia
-      return palette;
-    case 'Achromatomaly':
-      // Add logic for Achromatomaly
-      return palette;
-    case 'Deuteranomaly':
-      // Add logic for Deuteranomaly
-      return palette;
-    case 'Protanomaly':
-      // Add logic for Protanomaly
-      return palette;
-    case 'Tritanomaly':
-      // Add logic for Tritanomaly
-      return palette;
-    default:
-      return palette;
-  }
-}
-
 export function generateExport(method: string, palette: ColorType[]) {
   return palette;
 }

@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { generateAnalogous, generateComplementary, generateSplitComplementary, generateTetradic, generateTriadic } from '@/lib/single-color-conversions/harmonies';
-import PaletteDisplay from './palette-display';
+import PaletteDisplay from '../../palette/[selectedColors]/_components/util/palette-display';
 
 export default function Harmonies({ color }: { color: string }) {
   const harmonies = [

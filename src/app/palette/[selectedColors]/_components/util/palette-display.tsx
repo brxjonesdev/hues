@@ -3,6 +3,7 @@ import React from 'react';
 
 export default function PaletteDisplay({ data }: { data: ColorType[] }) {
 //  text color has to be right color based on contrast ratio
+console.log(data, "empty?/");
   return (
     <section className='flex w-full'>
       {data.map((color, index) => (

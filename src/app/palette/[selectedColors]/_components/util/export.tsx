@@ -1,10 +1,7 @@
 import React from 'react';
 import { usePalette } from '@/lib/generation/hooks/usePalette';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
-import { Button } from '@/components/ui/button';
-import { generateExport } from '@/lib/generation/generation-utils';
-
+import CodeDisplay from './code-display';
 export default function ExportPalette() {
   const { palette } = usePalette();
   const exportMethods = ['CSS', 'SASS', 'Tailwind', 'JSON', 'URL'];
@@ -23,7 +20,8 @@ export default function ExportPalette() {
         {exportMethods.map((method) => {
           return (
             <TabsContent key={method} value={method}>
-              {/* We need a simple way to display the Export stuff. */}
+              <CodeDisplay data={generateCode(palette, method)} />
+              
             </TabsContent>
           );
         })}

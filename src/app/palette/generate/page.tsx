@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { randomHexGeneration } from '@/lib/generation/generation-methods';
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,

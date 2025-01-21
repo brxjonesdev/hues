@@ -20,38 +20,7 @@ export const Features = () => (
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Custom Color Palettes */}
-          <div className="flex flex-col gap-2">
-            <div className="bg-muted rounded-md aspect-video mb-2"></div>
-            <h3 className="text-xl tracking-tight">Custom Color Palettes</h3>
-            <p className="text-muted-foreground text-base">
-              Use an intuitive color picker to create personalized palettes
-              tailored to your needs.
-            </p>
-          </div>
-
-          {/* Color Theory Rules */}
-          <div className="flex flex-col gap-2">
-            <div className="bg-muted rounded-md aspect-video mb-2"></div>
-            <h3 className="text-xl tracking-tight">Color Theory Integration</h3>
-            <p className="text-muted-foreground text-base">
-              Generate palettes based on color theory rules like complementary,
-              triadic, and analogous.
-            </p>
-          </div>
-
-          {/* Shadcn Themes */}
-          <div className="flex flex-col gap-2">
-            <div className="bg-muted rounded-md aspect-video mb-2"></div>
-            <h3 className="text-xl tracking-tight">Shadcn Themes</h3>
-            <p className="text-muted-foreground text-base">
-              Export your palettes as Shadcn themes for seamless integration
-              into your projects.
-            </p>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>

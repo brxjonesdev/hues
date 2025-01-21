@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import VariationsPalette from './palette-display';
+import VariationsPalette from '../../palette/[selectedColors]/_components/util/palette-display';
 import {
   generateHues,
   generateShades,
@@ -10,7 +10,7 @@ import {
   generateTones,
 } from '@/lib/single-color-conversions/variations';
 import { Palette } from 'lucide-react';
-import PaletteDisplay from './palette-display';
+import PaletteDisplay from '../../palette/[selectedColors]/_components/util/palette-display';
 
 export default function Variations({ color }: { color: string }) {
   const variations = [

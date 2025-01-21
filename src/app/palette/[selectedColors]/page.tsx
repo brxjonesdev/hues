@@ -21,11 +21,12 @@ export default async function page({
   }
 
   const palette = convertHexstring(validatedColors.value as string);
-  console.log(palette, 'palette in page');
+  console.log(palette);
+
 
   return (
     <section className="flex-1 flex w-full">
-      <Generator colors={palette} method={method} />
+      
     </section>
   );
 }

@@ -37,7 +37,7 @@ export default function Hero() {
                     Use our Palette Generator <Brush />
                   </Button>
                 </Link>
-                <Link href="/picker/?color=FFFFFF">
+                {/* <Link href="/picker/?color=FFFFFF">
                   <Button
                     size="lg"
                     className="w-full p-0 hover:bg-transparent hover:underline"
@@ -45,7 +45,7 @@ export default function Hero() {
                   >
                     ... or use the Color Picker
                   </Button>
-                </Link>
+                </Link> */}
                 {/* <Link href="/visualizer">
                   <Button size="lg" className="gap-4">
                     Visualizer <Eye />

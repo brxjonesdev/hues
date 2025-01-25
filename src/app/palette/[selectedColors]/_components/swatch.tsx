@@ -3,7 +3,7 @@ import { Copy, Grip, Heart, Lock, SwatchBook, Unlock, X } from 'lucide-react';
 import { usePalette } from '@/lib/generation/hooks/usePalette';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import MiniColorPicker from '../util/change-color';
+import MiniColorPicker from './util/change-color';
 
 export default function ColorSwatch({
   color,

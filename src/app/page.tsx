@@ -8,7 +8,7 @@ export default function LandingPage() {
   // fix style loss if it becomes a problem
   return (
     <>
-      <section className="mx-auto  flex flex-col flex-1 w-full pt-20">
+      <section className="mx-auto  flex flex-col flex-1 w-full py-10">
         <Hero />
       </section>
       <Footer />

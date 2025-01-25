@@ -5,9 +5,8 @@ import { Separator } from '../ui/separator'
 import { convertColorType } from '@/lib/generation/generation-utils'
 import Link from 'next/link'
 
-export default function MiniPalette({colors, key}:{
+export default function MiniPalette({colors}:{
     colors: ColorType[],
-    key: number
 }) {
   return (<>
   <div className='flex justify-end flex-col gap-2 items-end'>

@@ -4,7 +4,6 @@ import {
   convertHexstring,
   validateHexString,
 } from '@/lib/generation/generation-utils';
-import Generator from './_components/generators/generator';
 
 export default async function page({
   params,
@@ -19,7 +18,6 @@ export default async function page({
   if (validatedColors.error) {
     return <InvalidColors error={validatedColors.error} />;
   }
-
   const palette = convertHexstring(validatedColors.value as string);
   console.log(palette);
 

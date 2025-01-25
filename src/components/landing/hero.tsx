@@ -78,6 +78,16 @@ export default function Hero() {
       { hexcode: "#6A5ACD",  index: 4, isLocked: false }, // Slate Blue
       { hexcode: "#483D8B", index: 5, isLocked: false }, // Dark Slate Blue
     ],
+
+    // Palette 10: Rose Garden
+    [
+      { hexcode: "#FFC0CB", index: 0, isLocked: false }, // Pink
+      { hexcode: "#FF69B4", index: 1, isLocked: false }, // Hot Pink
+      { hexcode: "#FF1493", index: 2, isLocked: false }, // Deep Pink
+      { hexcode: "#DB7093", index: 3, isLocked: false }, // Pale Violet Red
+      { hexcode: "#C71585", index: 4, isLocked: false }, // Medium Violet Red
+      { hexcode: "#FF6347", index: 5, isLocked: false }, // Tomato
+    ],
   ];
   
 
@@ -111,7 +121,7 @@ export default function Hero() {
                 </Link>
           </div>
         </div>
-        <div className="rounded-md aspect-square flex flex-col gap-4 max-h-[35rem] overflow-y-scroll w-full px-4">
+        <div className="rounded-md aspect-square flex flex-col gap-4 h-full overflow-y-scroll w-full px-4">
           {palettes.map((palette, index) => {
             return <MiniPalette colors={palette} key={index} />;
           })}

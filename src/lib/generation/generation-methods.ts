@@ -1,4 +1,4 @@
-import { ColorType } from './hooks/usePalette';
+
 import { generateHexString } from './generation-utils';
 export function randomHexGeneration(currentColors?: ColorType[]) {
   if (currentColors) {

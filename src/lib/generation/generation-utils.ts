@@ -1,5 +1,4 @@
-import { ColorType } from './hooks/usePalette';
-
+const blinder = require('color-blind');
 // Validate if a hex string represents valid hex colors and return it if valid
 export function validateHexString(hexString: string): {
   error: string | null;
@@ -56,6 +55,8 @@ export function convertColorType(colors: ColorType[]): string {
   return colors.map((color) => color.hexcode.replace("#", "")).join("-");
 }
 
-export function generateExport(method: string, palette: ColorType[]) {
-  return palette;
+
+
+export function generateCode(palette: ColorType[], format: string): {} {
+  return '';
 }

@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect } from 'react';
-import ColorSwatch from '../color/swatch';
+import ColorSwatch from '../swatch';
 import { ColorType, usePalette } from '@/lib/generation/hooks/usePalette';
 import { useRouter } from 'next/navigation';
 import { randomHexGeneration } from '@/lib/generation/generation-methods';

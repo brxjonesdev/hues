@@ -32,11 +32,10 @@ export default function ColorPicker() {
         <Picker color={color} />
       </div>
 
-
       <section className="p-4 space-y-4 overflow-y-scroll font-inter w-full lg:w-4/6">
-            <Conversions color={color} />
-            <Variations color={color} />
-            <Harmonies color={color} />
+        <Conversions color={color} />
+        <Variations color={color} />
+        <Harmonies color={color} />
       </section>
     </section>
   );

@@ -11,6 +11,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
@@ -52,6 +54,7 @@
     "input-otp": "^1.4.2",
     "ldrs": "^1.0.2",
     "lucide-react": "^0.469.0",
+    "nanoid": "^5.0.9",
     "next": "15.1.5",
     "next-themes": "^0.4.4",
     "prettier": "^3.4.2",

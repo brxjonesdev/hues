@@ -1,23 +1,32 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { generateAnalogous, generateComplementary, generateSplitComplementary, generateTetradic, generateTriadic } from '@/lib/single-color-conversions/harmonies';
+import {
+  generateAnalogous,
+  generateComplementary,
+  generateSplitComplementary,
+  generateTetradic,
+  generateTriadic,
+} from '@/lib/single-color-conversions/harmonies';
 import PaletteDisplay from '../../palette/[selectedColors]/_components/util/palette-display';
 
 export default function Harmonies({ color }: { color: string }) {
   const harmonies = [
-    { name: 'Complementary', value: 'complementary', function:generateComplementary(color) },
-    { name: 'Analogous', value: 'analogous', function: generateAnalogous(color) },
+    {
+      name: 'Complementary',
+      value: 'complementary',
+      function: generateComplementary(color),
+    },
+    {
+      name: 'Analogous',
+      value: 'analogous',
+      function: generateAnalogous(color),
+    },
     { name: 'Triadic', value: 'triadic', function: generateTriadic(color) },
     {
       name: 'Split Complementary',
       value: 'split-complementary',
-     function: generateSplitComplementary(color),
+      function: generateSplitComplementary(color),
     },
     { name: 'Tetradic', value: 'tetradic', function: generateTetradic(color) },
   ];

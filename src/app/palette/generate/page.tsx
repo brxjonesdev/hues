@@ -2,7 +2,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { randomHexGeneration } from '@/lib/generation/generation-methods';
+import { randomHexGeneration } from '@/lib/generation';
 import {
   Card,
   CardDescription,

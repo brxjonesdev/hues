@@ -66,31 +66,9 @@ const generationMethods: {
     method: 'square',
     description: 'Generate colors based on four equidistant hues.',
   },
-  {
-    title: 'Shades',
-    method: 'shades',
-    description: 'Generate colors based on a single hue with varying shades.',
-  },
-  {
-    title: 'Tints',
-    method: 'tints',
-    description: 'Generate colors based on a single hue with varying tints.',
-  },
-  {
-    title: 'Tones',
-    method: 'tones',
-    description: 'Generate colors based on a single hue with varying tones.',
-  },
 ];
 
-// 7. Visualize menu
-// - View Color Palette with color data
-// - View different color blindness simulations
 
-// 8. Export Menu
-// - Export to CSS, SCSS, Tailwind, URL
-
-// -> Generation Methods
 
 export function ColorNavMenu({ colors }: { colors: string }) {
   return (
@@ -159,12 +137,9 @@ export function ColorNavMenu({ colors }: { colors: string }) {
                 Export
               </NavigationMenuLink>
             </DialogTrigger>
-            <DialogContent className="font-inter">
+            <DialogContent className="font-inter w-full max-w-xl">
               <DialogHeader>
                 <DialogTitle>Export Your Palette</DialogTitle>
-                <DialogDescription>
-                  Export your palette to CSS, SCSS, Tailwind, or a URL.
-                </DialogDescription>
               </DialogHeader>
               <ExportPalette />
             </DialogContent>

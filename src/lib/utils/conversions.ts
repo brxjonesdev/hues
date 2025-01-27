@@ -97,3 +97,19 @@ export function HexToLAB(hex: string): string {
   return `lab(${Math.round(l)}, ${Math.round(a)}, ${Math.round(bVal)})`;
 }
 
+export function RGBToHEX(rgb: string): string {
+  const match = rgb.match(/^rgb\((\d+), (\d+), (\d+)\)$/);
+  if (!match) {
+    throw new Error(`Invalid RGB format: ${rgb}`);
+  }
+
+  const [, r, g, b] = match.map(Number);
+  if ([r, g, b].some((value) => value < 0 || value > 255)) {
+    throw new Error(`RGB values must be between 0 and 255: ${rgb}`);
+  }
+
+  const hex = `${[r, g, b]
+    .map((value) => value.toString(16).padStart(2, '0'))
+    .join('')}`;
+  return hex.toUpperCase();
+}

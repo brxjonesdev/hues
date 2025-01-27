@@ -6,7 +6,7 @@ import { Share2Icon } from 'lucide-react';
 export default function MobileMenu() {
   const generateColors = () => {};
   return (
-    <div className="relative bottom-0  mt-2 w-full flex items-center  font-inter font-semibold text-2xl gap-2 xl:hidden p-3">
+    <div className="relative bottom-0  pt-0 w-full flex items-center  font-inter font-semibold text-2xl gap-2 xl:hidden p-3">
       <Button
         onClick={() => generateColors()}
         className="w-full  h-14 text-xl font-syne font-semibold rainbow-bg"

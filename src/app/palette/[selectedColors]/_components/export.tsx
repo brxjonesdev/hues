@@ -2,7 +2,8 @@
 import React from 'react';
 import {
   Select,
-  SelectContent,SelectItem,
+  SelectContent,
+  SelectItem,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -20,11 +21,14 @@ export default function ExportPalette() {
 
   const handleCopy = () => {
     const textToCopy = exportToStyles(palette as string, format as string);
-    navigator.clipboard.writeText(textToCopy as string).then(() => {
-      alert('Copied to clipboard!');
-    }).catch(() => {
-      alert('Failed to copy. Please try again.');
-    });
+    navigator.clipboard
+      .writeText(textToCopy as string)
+      .then(() => {
+        alert('Copied to clipboard!');
+      })
+      .catch(() => {
+        alert('Failed to copy. Please try again.');
+      });
   };
   // const {code,  error} = exportToStyles(palette, format);
   return (
@@ -35,31 +39,31 @@ export default function ExportPalette() {
           <SelectTrigger className=" w-full font-syne">
             <SelectValue placeholder="Format" />
           </SelectTrigger>
-          <SelectContent className='font-inter'>
+          <SelectContent className="font-inter">
             {exportMethods.map((method) => (
-              <SelectItem
-              key={method} 
-              value={method}>{method}</SelectItem>
+              <SelectItem key={method} value={method}>
+                {method}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
-      <Separator/>
+      <Separator />
       {format && (
-      <section className="flex-1 flex flex-col gap-2 rounded-md">
+        <section className="flex-1 flex flex-col gap-2 rounded-md">
           <div className="relative">
-        <pre className="font-inter rounded-md whitespace-pre-wrap bg-white/5 p-2">
-          {exportToStyles(palette as string, format)}
-        </pre>
-        <Button
-          onClick={handleCopy}
-          variant={'ghost'}
-          className="absolute top-2 right-2 "
-        >
-          Copy
-        </Button>
-      </div>
-      </section>
+            <pre className="font-inter rounded-md whitespace-pre-wrap bg-white/5 p-2">
+              {exportToStyles(palette as string, format)}
+            </pre>
+            <Button
+              onClick={handleCopy}
+              variant={'ghost'}
+              className="absolute top-2 right-2 "
+            >
+              Copy
+            </Button>
+          </div>
+        </section>
       )}
     </section>
   );

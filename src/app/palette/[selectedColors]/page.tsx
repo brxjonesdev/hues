@@ -1,14 +1,17 @@
-"use client";
+'use client';
 import React from 'react';
-import { useParams, useSearchParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation';
 import DraggableGrid from './_components/display';
 import MobileDisplay from './_components/mobile-display';
-function convertColors(colors: string, method: string): {
+function convertColors(
+  colors: string,
+  method: string
+): {
   rgb: string;
   isLocked: boolean;
   isBaseColor: boolean;
 }[] {
-  const colorArray = colors.split("-");
+  const colorArray = colors.split('-');
   const palette: {
     rgb: string;
     isLocked: boolean;
@@ -25,28 +28,28 @@ function convertColors(colors: string, method: string): {
     }
 
     const [_, hex, flag] = match;
-    const isLocked = flag === "L";
-    const isBaseColor = flag === "B";
+    const isLocked = flag === 'L';
+    const isBaseColor = flag === 'B';
 
     // Enforce constraints
     if (isBaseColor) {
       baseColorCount++;
       if (baseColorCount > 1) {
-        throw new Error("There can only be one base color.");
+        throw new Error('There can only be one base color.');
       }
     }
 
     if (method && isLocked) {
-      throw new Error("Locked colors are not allowed when a generation method is specified.");
+      throw new Error(
+        'Locked colors are not allowed when a generation method is specified.'
+      );
     }
-
-
-
 
     if (isLocked && baseColorCount > 0) {
-      throw new Error("Locked colors are not allowed when a base color exists.");
+      throw new Error(
+        'Locked colors are not allowed when a base color exists.'
+      );
     }
-    
 
     // Convert hex to RGB
     const r = parseInt(hex.slice(0, 2), 16);
@@ -55,22 +58,23 @@ function convertColors(colors: string, method: string): {
     const rgb = `rgb(${r}, ${g}, ${b})`;
 
     if (totalColors > 9) {
-      throw new Error("There can only be 10 colors.");
+      throw new Error('There can only be 10 colors.');
     }
-    palette.push({ rgb, isLocked, isBaseColor,});
+    palette.push({ rgb, isLocked, isBaseColor });
     totalColors++;
-    
   }
 
   return palette;
 }
 
 export default function Generator() {
-  const colors = useParams<{selectedColors: string;}>().selectedColors;
+  const colors = useParams<{ selectedColors: string }>().selectedColors;
   const method = useSearchParams().get('generation');
   const palette = convertColors(colors, method as string);
-  return <>
-  <DraggableGrid palette={palette}/>
-  <MobileDisplay palette={palette}/>
-  </>
+  return (
+    <>
+      <DraggableGrid palette={palette} />
+      <MobileDisplay palette={palette} />
+    </>
+  );
 }

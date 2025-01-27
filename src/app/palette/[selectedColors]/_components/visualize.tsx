@@ -43,11 +43,7 @@ export default function Visualize() {
   );
 }
 
-function PaletteDisplay({
-  data,
-}: {
-  data: { hexcode: string }[];
-}) {
+function PaletteDisplay({ data }: { data: { hexcode: string }[] }) {
   return (
     <section className="flex w-full">
       {data.map((color, index) => (

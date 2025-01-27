@@ -1,4 +1,3 @@
-
 export function generateHexString(length: number): string {
   const hexSegments = [];
 
@@ -50,11 +49,20 @@ export function randomHexGeneration(currentColors?) {
   return colors;
 }
 
-
-
-
 //-----------------------------
 // Palette Generation Functions
 //-----------------------------
 
+export function randomizePalette(currentPalette: string): string {
+  const colors = currentPalette.split('-');
 
+  const randomizedColors = colors.map((color) => {
+    if (color.includes('_L')) {
+      return color;
+    }
+
+    return generateHexString(1);
+  });
+
+  return randomizedColors.join('-');
+}

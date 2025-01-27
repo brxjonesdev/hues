@@ -68,8 +68,6 @@ const generationMethods: {
   },
 ];
 
-
-
 export function ColorNavMenu({ colors }: { colors: string }) {
   return (
     <NavigationMenu className="py-2 border-none font-inter">

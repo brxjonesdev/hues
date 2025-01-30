@@ -26,6 +26,7 @@ import {
   Trash2,
   UnlockIcon,
   GripHorizontalIcon,
+  Palette,
 } from 'lucide-react';
 import { nanoid } from 'nanoid';
 import { useRouter } from 'next/navigation';
@@ -35,6 +36,19 @@ import { useToast } from '@/hooks/use-toast';
 import useSpacebarEffect from '@/hooks/use-spacebar';
 import { randomizePalette } from '@/lib/generation';
 import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
+
+{/*
+  
+  - Swapping colors won't reset locked colors
+  - users can update the colors
+  
+*/}
+
+
+
+
+
 
 export type ColumnData = {
   id: string;
@@ -118,6 +132,16 @@ const SortableItem = ({
           >
             <Trash2 />
           </Button>
+          {/* <Link href={`/palette/monochromatic/${RGBToHEX(rgb)}`}>
+          <Button
+            onClick={() => onDelete()}
+            className="text-black/60"
+            size="icon" 
+            variant={'ghost'}
+          >
+            <Palette/>
+          </Button></Link>
+           */}
          
         </div>
       </div>
@@ -125,9 +149,6 @@ const SortableItem = ({
   );
 };
 
-// Handle Transition from Random to Theory and back
-// Handle Setting Base Color
-// Handle Color Theory Generation
 export default function DraggableGrid({ palette }: DraggableGridProps) {
   const router = useRouter();
   const { toast } = useToast();
@@ -157,13 +178,47 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     if (active.id !== over?.id) {
       const oldIndex = columns.findIndex((item) => item.id === active.id);
       const newIndex = columns.findIndex((item) => item.id === over?.id);
+    
+      // console.log(urlPalette);
+      // console.log(arrayMove(columns, oldIndex, newIndex)
+      //     .map((color) => RGBToHEX(color.rgb))
+      //     .join('-'));
+
+      const newPalette = handleSwap(urlPalette as string, arrayMove(columns, oldIndex, newIndex)
+      .map((color) => RGBToHEX(color.rgb))
+      .join('-'))
+
+      console.log(newPalette, "newPalette");
+
       router.push(
-        `/palette/${arrayMove(columns, oldIndex, newIndex)
-          .map((color) => RGBToHEX(color.rgb))
-          .join('-')}`
+        `/palette/${newPalette}`
       );
-    }
+     }
+      
   };
+
+  function handleSwap(current: string, next: string) {
+
+    const currentColors = current.split('-');
+    const nextColors = next.split('-');
+    console.log("nextColors", nextColors);
+
+    const lockedColors = currentColors.filter((color) => color.includes('_L'));
+    console.log(lockedColors, "lockedColors");
+    const unlockedColors = currentColors.filter((color) => !color.includes('_L'));
+    console.log(unlockedColors, "unlockedColors");
+
+    const newColors = nextColors.map((color) => {
+      if (lockedColors.includes(`${color}_L`)) {
+        return `${color}_L`;
+      }
+      return color;
+    });
+
+    console.log(newColors, "newColors");
+
+    return newColors.join('-');
+  }
 
   const addColumn = (insertIndex, prevColor, nextColor) => {
     if (columns.length >= 10) {

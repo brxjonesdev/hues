@@ -1,15 +1,13 @@
 'use client';
-import { Brush, Eye } from 'lucide-react';
+import { Brush} from 'lucide-react';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Picker from '@/app/picker/_components/picker';
-import { ColorType } from '@/lib/generation/hooks/usePalette';
 import MiniPalette from './mini-palette';
 import { Separator } from '../ui/separator';
 
 export default function Hero() {
-  const palettes: ColorType[][] = [
+  const palettes = [
     // Palette 1: Sunset Vibes
     [
       { hexcode: '#FF5733', index: 0, isLocked: false }, // Vibrant Orange
@@ -96,7 +94,7 @@ export default function Hero() {
             <div className="flex gap-4 flex-col">
               <h1 className="text-5xl md:text-7xl max-w-xl tracking-tighter text-left font-inter">
                 Create{' '}
-                <span className="font-syne tracking-wide  rounded-xl text-md mix-blend-normal">
+                <span className="font-syne tracking-tight  rounded-xl text-md mix-blend-normal">
                   beautiful
                 </span>{' '}
                 palettes with ease.

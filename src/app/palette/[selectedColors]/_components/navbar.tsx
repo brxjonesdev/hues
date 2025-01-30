@@ -25,6 +25,8 @@ import {
 import Visualize from './visualize';
 import { Separator } from '@/components/ui/separator';
 import ExportPalette from './export';
+import { Button } from '@/components/ui/button';
+import { GripVerticalIcon } from 'lucide-react';
 
 const generationMethods: {
   title: string;
@@ -72,7 +74,7 @@ export function ColorNavMenu({ colors }: { colors: string }) {
   return (
     <NavigationMenu className="py-2 border-none font-inter">
       <NavigationMenuList>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger className="hover:tracking-wide transition-all duration-300 ease-in-out">
             Generation Methods
           </NavigationMenuTrigger>
@@ -106,7 +108,7 @@ export function ColorNavMenu({ colors }: { colors: string }) {
               })}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <Dialog>
             <DialogTrigger asChild>
@@ -143,6 +145,49 @@ export function ColorNavMenu({ colors }: { colors: string }) {
             </DialogContent>
           </Dialog>
         </NavigationMenuItem>
+        <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size={"icon"}>
+          <GripVerticalIcon />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="font-inter w-full max-w-xl">
+        <DialogHeader>
+          <DialogTitle>Welcome to Hues!</DialogTitle>
+          <DialogDescription>
+            Follow this quick tutorial to learn how to create, manage, and export your color palettes.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4">
+          <div>
+            <p>
+              Press the <span className="font-bold">Spacebar</span> to randomize colors in your palette. Each press generates a new set of vibrant colors.
+            </p>
+          </div>
+          <div>
+            <p>
+             Click the lock icon on a color to prevent it from changing when randomizing.
+              <br />
+              Remove a color by clicking the delete icon.
+            </p>
+          </div>
+          <div>
+            <p>
+            Test how your palette looks for different types of color blindness.
+              <br />
+          View your palette in a clean preview mode.
+            </p>
+          </div>
+          <div>
+            <p>
+              Export your palette to code in various formats like CSS, JSON, or SCSS. Use the export button to save your palette.
+            </p>
+          </div>
+        </div>
+        
+      </DialogContent>
+    </Dialog>
+
       </NavigationMenuList>
     </NavigationMenu>
   );

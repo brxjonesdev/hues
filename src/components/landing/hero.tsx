@@ -1,5 +1,5 @@
 'use client';
-import { Brush} from 'lucide-react';
+import { Brush } from 'lucide-react';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';

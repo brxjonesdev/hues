@@ -3,16 +3,16 @@ import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 import Link from 'next/link';
 
-export default function MiniPalette({ colors }: { colors: {
+export default function MiniPalette({
+  colors,
+}: {
+  colors: {
     hexcode: string;
     name: string;
     rgb: string;
     isLocked: boolean;
-  }[]
+  }[];
 }) {
-
-
-
   return (
     <>
       <div className="flex justify-end flex-col gap-2 items-end">
@@ -35,7 +35,10 @@ export default function MiniPalette({ colors }: { colors: {
             </div>
           ))}
         </section>
-        <Link href={`/palette/${colors.map(color => color.hexcode.replace('#', '')).join(('-'))}`} className="w-fit">
+        <Link
+          href={`/palette/${colors.map((color) => color.hexcode.replace('#', '')).join('-')}`}
+          className="w-fit"
+        >
           <Button variant={'ghost'} className="text-right w-fit mr-2">
             Export to Generator
           </Button>

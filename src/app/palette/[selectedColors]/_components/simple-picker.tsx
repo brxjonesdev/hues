@@ -5,6 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { cn } from "@/lib/utils/utils"
 
 interface ColorPickerProps {
   value: string
@@ -77,6 +78,7 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false)
+    
   }, [])
 
   const handleHueChange = useCallback(
@@ -150,7 +152,7 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
   }
 
   function rgbToHex(r: number, g: number, b: number): string {
-    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`
+    return `${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`
   }
 
   function rgbToHsl(r: number, g: number, b: number): HSL {
@@ -198,28 +200,23 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
   }
 
   return (
+
     <Popover>
       <PopoverTrigger asChild>
         <button
           className={cn(
-            "inline-flex items-center gap-2 rounded px-1 hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring",
+            "",
             className,
           )}
         >
-          <div className="h-4 w-4 rounded-full border" style={{ backgroundColor: color }} />
-          <span>{color}</span>
+          {/* <div className="h-8 w-full rounded-full " style={{ backgroundColor: color }} /> */}
+          <span className="text-3xl font-semibold text-black/60">{color}</span>
         </button>
       </PopoverTrigger>
-      <PopoverContent className="w-80" align="start">
-        <Tabs defaultValue="picker" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="picker">Picker</TabsTrigger>
-            <TabsTrigger value="hex">Hex</TabsTrigger>
-            <TabsTrigger value="rgb">RGB</TabsTrigger>
-            <TabsTrigger value="hsl">HSL</TabsTrigger>
-          </TabsList>
-          <TabsContent value="picker" className="mt-4">
-            <div
+      <PopoverContent 
+      style={{backgroundColor: `#${color}`}}
+      className="w-64 border-black/20" align="center">
+      <div
               className="relative h-40 rounded-lg cursor-crosshair mb-4"
               style={{
                 backgroundColor: `hsl(${hue}, 100%, 50%)`,
@@ -252,56 +249,7 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
                   "linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%)",
               }}
             />
-          </TabsContent>
-          <TabsContent value="hex" className="mt-4">
-            <div className="grid gap-2">
-              <Label htmlFor="hex-color">Hex Color</Label>
-              <Input
-                id="hex-color"
-                value={color}
-                onChange={(e) => handleColorChange(e.target.value)}
-                className="font-mono"
-              />
-            </div>
-          </TabsContent>
-          <TabsContent value="rgb" className="mt-4">
-            <div className="grid gap-4">
-              {(["r", "g", "b"] as const).map((channel) => (
-                <div key={channel} className="grid gap-2">
-                  <Label htmlFor={`rgb-${channel}`}>{channel.toUpperCase()}</Label>
-                  <Input
-                    id={`rgb-${channel}`}
-                    type="number"
-                    min="0"
-                    max="255"
-                    value={rgb[channel]}
-                    onChange={(e) => handleRgbChange(channel, Number.parseInt(e.target.value))}
-                  />
-                </div>
-              ))}
-            </div>
-          </TabsContent>
-          <TabsContent value="hsl" className="mt-4">
-            <div className="grid gap-4">
-              {(["h", "s", "l"] as const).map((channel) => (
-                <div key={channel} className="grid gap-2">
-                  <Label htmlFor={`hsl-${channel}`}>
-                    {channel.toUpperCase()}
-                    {channel === "h" ? " (0-360)" : " (0-100)"}
-                  </Label>
-                  <Input
-                    id={`hsl-${channel}`}
-                    type="number"
-                    min={channel === "h" ? "0" : "0"}
-                    max={channel === "h" ? "360" : "100"}
-                    value={hsl[channel]}
-                    onChange={(e) => handleHslChange(channel, Number.parseInt(e.target.value))}
-                  />
-                </div>
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+      
       </PopoverContent>
     </Popover>
   )

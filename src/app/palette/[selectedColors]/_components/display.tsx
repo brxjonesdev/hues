@@ -37,18 +37,17 @@ import useSpacebarEffect from '@/hooks/use-spacebar';
 import { randomizePalette } from '@/lib/generation';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
+import SingleColor from './single-color';
+import EnhancedMiniColorPicker from './simple-picker';
 
-{/*
+{
+  /*
   
   - Swapping colors won't reset locked colors
   - users can update the colors
   
-*/}
-
-
-
-
-
+*/
+}
 
 export type ColumnData = {
   id: string;
@@ -80,7 +79,6 @@ const SortableItem = ({
     transform: CSS.Transform.toString(transform),
     transition,
   };
- 
 
   return (
     <section
@@ -92,11 +90,8 @@ const SortableItem = ({
       {...attributes}
       className="bg-card text-card-foreground rounded-lg flex flex-col items-center justify-end h-full gap-4"
     >
-      <div className='flex-1  w-full rounded-t-lg p-4'>
-      
+      <div className="flex-1  w-full rounded-t-lg p-4"></div>
 
-      </div>
-      <Separator className='bg-black/20'/>
       <div
         {...listeners}
         className="w-full p-2 flex justify-center cursor-grab active:cursor-grabbing hover:bg-black/10"
@@ -106,13 +101,14 @@ const SortableItem = ({
 
       {/* Content */}
       <div className="font-inter text-center mb-16">
-        <p
+        {/* <p
           className={`uppercase 
           ${length <= 2 ? 'text-4xl' : length <= 4 ? 'text-3xl' : length <= 6 ? 'text-2xl' : length <= 8 ? 'text-xl' : length <= 10 ? 'text-lg' : 'text-base'}
           font-bold text-black/60`}
         >
           {RGBToHEX(rgb)}
-        </p>
+        </p> */}
+        <EnhancedMiniColorPicker value={RGBToHEX(rgb)} />
         <p className="text-xs text-black/60">{rgb}</p>
 
         <div>
@@ -142,7 +138,6 @@ const SortableItem = ({
             <Palette/>
           </Button></Link>
            */}
-         
         </div>
       </div>
     </section>
@@ -160,6 +155,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
+
   useSpacebarEffect(() => {
     const newPalette = randomizePalette(urlPalette as string);
     router.push(`/palette/${newPalette}`);
@@ -178,35 +174,36 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     if (active.id !== over?.id) {
       const oldIndex = columns.findIndex((item) => item.id === active.id);
       const newIndex = columns.findIndex((item) => item.id === over?.id);
-    
+
       // console.log(urlPalette);
       // console.log(arrayMove(columns, oldIndex, newIndex)
       //     .map((color) => RGBToHEX(color.rgb))
       //     .join('-'));
 
-      const newPalette = handleSwap(urlPalette as string, arrayMove(columns, oldIndex, newIndex)
-      .map((color) => RGBToHEX(color.rgb))
-      .join('-'))
-
-      console.log(newPalette, "newPalette");
-
-      router.push(
-        `/palette/${newPalette}`
+      const newPalette = handleSwap(
+        urlPalette as string,
+        arrayMove(columns, oldIndex, newIndex)
+          .map((color) => RGBToHEX(color.rgb))
+          .join('-')
       );
-     }
-      
+
+      console.log(newPalette, 'newPalette');
+
+      router.push(`/palette/${newPalette}`);
+    }
   };
 
   function handleSwap(current: string, next: string) {
-
     const currentColors = current.split('-');
     const nextColors = next.split('-');
-    console.log("nextColors", nextColors);
+    console.log('nextColors', nextColors);
 
     const lockedColors = currentColors.filter((color) => color.includes('_L'));
-    console.log(lockedColors, "lockedColors");
-    const unlockedColors = currentColors.filter((color) => !color.includes('_L'));
-    console.log(unlockedColors, "unlockedColors");
+    console.log(lockedColors, 'lockedColors');
+    const unlockedColors = currentColors.filter(
+      (color) => !color.includes('_L')
+    );
+    console.log(unlockedColors, 'unlockedColors');
 
     const newColors = nextColors.map((color) => {
       if (lockedColors.includes(`${color}_L`)) {
@@ -215,7 +212,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
       return color;
     });
 
-    console.log(newColors, "newColors");
+    console.log(newColors, 'newColors');
 
     return newColors.join('-');
   }
@@ -311,6 +308,10 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
 
     router.push(newUrl);
   };
+
+  if (palette.length === 1) {
+    return <SingleColor color={palette[0].rgb} />;
+  }
 
   return (
     <DndContext

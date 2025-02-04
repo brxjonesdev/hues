@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils/utils"
+import { RGBToHEX } from "@/lib/utils/conversions"
 
 interface ColorPickerProps {
   value: string
@@ -27,14 +28,12 @@ interface HSL {
   l: number
 }
 
-export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, className }: ColorPickerProps) {
+export default function EnhancedMiniColorPicker({ value, onChange, className }: ColorPickerProps) {
+
   const [color, setColor] = useState(value)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [hue, setHue] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
-  const [colorMode, setColorMode] = useState<ColorMode>("hex")
-  const [rgb, setRgb] = useState<RGB>({ r: 0, g: 0, b: 0 })
-  const [hsl, setHsl] = useState<HSL>({ h: 0, s: 0, l: 0 })
 
   const handleColorChange = useCallback(
     (newColor: string) => {
@@ -47,9 +46,8 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
   useEffect(() => {
     const rgb = hexToRgb(color)
     const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b)
-    setRgb(rgb)
-    setHsl(hsl)
     setHue(hsl.h)
+    onChange?.(color)
   }, [color])
 
   const handleMouseDown = useCallback(
@@ -78,6 +76,7 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false)
+    onChange?.(color)
     
   }, [])
 
@@ -97,18 +96,6 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
     handleColorChange(newColor)
   }
 
-  const handleRgbChange = (channel: keyof RGB, value: number) => {
-    const newRgb = { ...rgb, [channel]: value }
-    const newColor = rgbToHex(newRgb.r, newRgb.g, newRgb.b)
-    handleColorChange(newColor)
-  }
-
-  const handleHslChange = (channel: keyof HSL, value: number) => {
-    const newHsl = { ...hsl, [channel]: value }
-    const rgb = hslToRgb(newHsl.h, newHsl.s, newHsl.l)
-    const newColor = rgbToHex(rgb.r, rgb.g, rgb.b)
-    handleColorChange(newColor)
-  }
 
   // Color conversion functions
   function HSVtoHex(h: number, s: number, v: number): string {
@@ -210,12 +197,11 @@ export default function EnhancedMiniColorPicker({ value = "#C2CB35", onChange, c
           )}
         >
           {/* <div className="h-8 w-full rounded-full " style={{ backgroundColor: color }} /> */}
-          <span className="text-3xl font-semibold text-black/60">{color}</span>
+          <span className="text-3xl font-semibold text-black/60">{RGBToHEX(color)}</span>
         </button>
       </PopoverTrigger>
       <PopoverContent 
-      style={{backgroundColor: `#${color}`}}
-      className="w-64 border-black/20" align="center">
+      className="w-full border-none shadow-none bg-transparent" align="center">
       <div
               className="relative h-40 rounded-lg cursor-crosshair mb-4"
               style={{

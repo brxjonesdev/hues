@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from 'react';
+import { useState } from "react";
+import { RgbColorPicker } from "react-colorful";
 import {
   Card,
   CardContent,
@@ -13,8 +14,11 @@ import { Copy } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { generateName, getAnalagousColors, getComplementaryColors, getShades, getSplitComplementaryColors, getSquareColors, getTetradicColors, getTints, getTones, getTriadicColors } from '@/lib/utils/transformations';
 import ColorPicker from './picker';
+import { useRouter } from "next/navigation";
 
 export default function SingleColor({ color }: { color: string }) {
+  console.log(color)
+  const router = useRouter();
   const [selectedColor, setSelectedColor] = useState(color);
   const { toast } = useToast();
   
@@ -77,16 +81,24 @@ export default function SingleColor({ color }: { color: string }) {
   return (
     <section className="flex-1 flex justify-center flex-col items-center max-w-5xl mx-auto w-full  ">
       <div className="w-full p-4 flex flex-col gap-4 lg:flex-row">
-      <Card className='w-full flex flex-col gap-4'>
-  <CardHeader 
-  style={{backgroundColor: selectedColor}}
-  className='flex-1 rounded-t-lg flex items-center justify-center font-syne text-black/70 text-3xl font-semibold min-h-48'>
-    {generateName(selectedColor)}
-  </CardHeader>
-  <CardContent className='flex-1'>
-    <ColorPicker initColor={color} onChange={(color: string) => setSelectedColor(color)} />
-  </CardContent>
-</Card>
+      <Card className="w-fit flex flex-col gap-4">
+      <CardHeader
+        style={{ backgroundColor: selectedColor }}
+        className="w-full rounded-t-lg flex items-center justify-center font-syne text-black/70 text-md text-center font-semibold min-h-48 transition-all"
+      >
+        {generateName(selectedColor)}
+      </CardHeader>
+      <CardContent className="w-fit flex flex-col items-center gap-4 p-4">
+        <div className="w-fit">
+          <RgbColorPicker
+            color={hexToRgb(selectedColor)}
+            onChange={(rgb) => setSelectedColor(rgbToHex(rgb))}
+            onMouseUp={() => router.push(`/palette/${RGBToHEX(selectedColor).replace("#", "")}`)}
+            className="w-full h-[250px] rounded-lg shadow-md"
+          />
+        </div>
+      </CardContent>
+    </Card>
 
 
         <Card className="h-fit w-full  font-syne overflow-y-scroll">
@@ -140,3 +152,12 @@ export default function SingleColor({ color }: { color: string }) {
 }
 
 
+// Helper functions to convert between RGB and Hex
+function hexToRgb(hex: string) {
+  const match = hex.match(/\d+/g)?.map(Number);
+  return match ? { r: match[0], g: match[1], b: match[2] } : { r: 255, g: 255, b: 255 };
+}
+
+function rgbToHex({ r, g, b }: { r: number; g: number; b: number }) {
+  return `rgb(${r}, ${g}, ${b})`;
+}

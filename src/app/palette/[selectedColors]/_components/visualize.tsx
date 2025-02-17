@@ -13,6 +13,8 @@ export default function Visualize() {
       : selectedColors || ''
   );
 
+  console.log(colors, "taste")
+
   const variations = [
     'Normal',
     'Protanopia',
@@ -33,7 +35,7 @@ export default function Visualize() {
             <div className="flex flex-col gap-2" key={variation}>
               <Label className="font-syne">{variation}</Label>
               <div className="flex items-center justify-center">
-                <PaletteDisplay data={applyColorBlindness(colors, variation)} />
+                <PaletteDisplay data={applyColorBlindness(colors, variation as "Normal" | "Protanopia" | "Deuteranopia" | "Tritanopia" | "Achromatopsia" | "Protanomaly" | "Deuteranomaly" | "Tritanomaly" | "Achromatomaly")} />
               </div>
             </div>
           );
@@ -44,6 +46,7 @@ export default function Visualize() {
 }
 
 function PaletteDisplay({ data }: { data: { hexcode: string }[] }) {
+  console.log(data, "data taste")
   return (
     <section className="flex w-full">
       {data.map((color, index) => (

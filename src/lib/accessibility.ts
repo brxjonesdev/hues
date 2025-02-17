@@ -63,9 +63,9 @@ function rgbToHex(r: number, g: number, b: number): string {
 }
 
 export function applyColorBlindness(
-  palette: { color: string; hexcode: string }[],
+  palette: { hexcode: string, isLocked: boolean, index: number }[],
   variation: keyof typeof matrices
-): { color: string; hexcode: string }[] {
+): { hexcode: string }[] {
   // Validate variation
   if (!matrices[variation]) {
     throw new Error(`Invalid variation: ${variation}`);
@@ -73,7 +73,7 @@ export function applyColorBlindness(
 
   const matrix = matrices[variation];
 
-  return palette.map(({ color, hexcode }) => {
+  return palette.map(({ hexcode }) => {
     // Convert HEX to RGB
     const { r, g, b } = hexToRgb(hexcode);
 

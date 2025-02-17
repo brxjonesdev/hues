@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
@@ -29,18 +30,8 @@ import { useToast } from "@/hooks/use-toast"
 import useSpacebarEffect from "@/hooks/use-spacebar"
 import { randomizePalette } from "@/lib/generation"
 import SingleColor from "./single-color"
-import EnhancedMiniColorPicker from "./simple-picker"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { RgbColorPicker } from "react-colorful";
-
-{
-  /*
-  
-  - Swapping colors won't reset locked colors
-  - users can update the colors
-  
-*/
-}
 
 export type ColumnData = {
   id: string
@@ -54,7 +45,12 @@ export type ColumnData = {
 }
 
 export interface DraggableGridProps {
-  palette: ColumnData[]
+  paletteData: ColumnData[]
+  palette: {
+    rgb: string;
+    isLocked: boolean;
+    isBaseColor: boolean;
+}[]
   method: string
 }
 
@@ -152,6 +148,10 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     palette.map((color) => ({
       ...color,
       id: nanoid(),
+      length: palette.length,
+      onDelete: () => {}, // Provide appropriate function
+      toggleLock: () => {}, // Provide appropriate function
+      onColorChange: (id: string, newColor: string) => {}, // Provide appropriate function
     })),
   )
 
@@ -212,7 +212,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     return newColors.join("-")
   }
 
-  const addColumn = (insertIndex, prevColor, nextColor) => {
+  const addColumn = (insertIndex: number | undefined, prevColor: string, nextColor: string) => {
     if (columns.length >= 10) {
       toast({
         title: "Maximum colors reached",
@@ -222,7 +222,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     }
 
     // Helper function to parse an RGB string into an object
-    const parseRGB = (rgbString) => {
+    const parseRGB = (rgbString: string) => {
       const match = rgbString.match(/rgb$$(\d+),\s*(\d+),\s*(\d+)$$/)
       if (!match) return null
       return {
@@ -233,7 +233,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     }
 
     // Helper function to compute the middle color
-    const middleColor = (color1, color2) => {
+    const middleColor = (color1: { r: number; g: number; b: number }, color2: { r: number; g: number; b: number }) => {
       return {
         r: Math.round((color1.r + color2.r) / 2),
         g: Math.round((color1.g + color2.g) / 2),

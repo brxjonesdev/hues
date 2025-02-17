@@ -13,7 +13,6 @@ import { Button } from '@/components/ui/button';
 import { Copy } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { generateName, getAnalagousColors, getComplementaryColors, getShades, getSplitComplementaryColors, getSquareColors, getTetradicColors, getTints, getTones, getTriadicColors } from '@/lib/utils/transformations';
-import ColorPicker from './picker';
 import { useRouter } from "next/navigation";
 
 export default function SingleColor({ color }: { color: string }) {

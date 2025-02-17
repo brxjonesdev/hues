@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import React from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
@@ -71,9 +72,10 @@ export default function Generator() {
   const colors = useParams<{ selectedColors: string }>().selectedColors;
   const method = useSearchParams().get('generation');
   const palette = convertColors(colors, method as string);
+  console.log(palette, "palette");
   return (
     <>
-      <DraggableGrid palette={palette} />
+      <DraggableGrid palette={palette} paletteData={[]} method={''} />
       <MobileDisplay palette={palette} />
     </>
   );

@@ -8,10 +8,9 @@ export default function MiniPalette({
 }: {
   colors: {
     hexcode: string;
-    name: string;
-    rgb: string;
+    index: number;
     isLocked: boolean;
-  }[];
+}[];
 }) {
   return (
     <>

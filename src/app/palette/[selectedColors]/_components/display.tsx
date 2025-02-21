@@ -83,19 +83,19 @@ const SortableItem = ({ id, rgb, isLocked, onDelete, toggleLock, onColorChange }
         backgroundColor: currentColor,
       }}
       {...attributes}
-      className="bg-card text-card-foreground rounded-lg flex flex-col items-center justify-end h-full gap-4"
+      className="bg-card text-card-foreground rounded-lg flex flex-col items-center justify-center xl:justify-end h-full gap-4 flex-1 py-4"
     >
-      <div className="flex-1 w-full rounded-t-lg p-4"></div>
+      <div className=" hidden xl:flex flex-1 w-full rounded-t-lg p-4"></div>
 
       <div
         {...listeners}
-        className="w-full p-2 flex justify-center cursor-grab active:cursor-grabbing hover:bg-black/10"
+        className="hidden xl:flex w-full p-2 justify-center cursor-grab active:cursor-grabbing hover:bg-black/10"
       >
         <GripHorizontalIcon />
       </div>
 
       {/* Content */}
-      <div className="font-inter text-center mb-16">
+      <div className="font-inter text-center xl:mb-16 flex items-center justify-center gap-2 w-full xl:flex-col">
         <Popover open={isPickerOpen} onOpenChange={setIsPickerOpen}>
           <PopoverTrigger asChild>
             <p className="text-3xl font-bold text-black/60 cursor-pointer hover:underline">{RGBToHEX(currentColor)}</p>
@@ -110,7 +110,7 @@ const SortableItem = ({ id, rgb, isLocked, onDelete, toggleLock, onColorChange }
           </PopoverContent>
         </Popover>
 
-        <div className="flex gap-2 mt-2 justify-center">
+        <div className="flex gap-2 xl:mt-2 justify-center">
           <Button onClick={toggleLock} className="text-black/60" size="icon" variant="ghost">
             {!isLocked ? <UnlockIcon /> : <LockIcon />}
           </Button>
@@ -307,7 +307,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
   return (
     <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <SortableContext items={columns} strategy={horizontalListSortingStrategy}>
-        <div className="hidden xl:flex flex-1 relative px-8 gap-1 lg:pb-8 ">
+        <div className=" flex flex-1 relative px-3 xl:px-8 gap-2 py-8  flex-col xl:flex-row ">
           {columns.map((column, index) => (
             <React.Fragment key={column.id}>
               {index > 0 && (
@@ -315,7 +315,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 group-hover:opacity-100 transition-all rotate-45 hover:rotate-90 rounded-full "
+                    className="invisible xl:visible absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 group-hover:opacity-100 transition-all rotate-45 hover:rotate-90 rounded-full  "
                     onClick={() => addColumn(index, columns[index - 1].rgb, columns[index].rgb)}
                     aria-label={`Add column before ${column.rgb}`}
                   >
@@ -323,7 +323,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
                   </Button>
                 </div>
               )}
-              <div className="w-full ">
+              <div className="w-full flex-1 flex">
                 <SortableItem
                   id={column.id}
                   rgb={column.rgb}

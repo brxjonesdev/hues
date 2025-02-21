@@ -75,8 +75,6 @@ export default function Generator() {
   console.log(palette, "palette");
   return (
     <>
-      <DraggableGrid palette={palette} paletteData={[]} method={''} />
-      <MobileDisplay palette={palette} />
-    </>
+      <DraggableGrid palette={palette} paletteData={[]} method={''} />    </>
   );
 }

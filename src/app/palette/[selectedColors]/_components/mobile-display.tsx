@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { RGBToHEX } from '@/lib/utils/conversions';
 import {
   CopyIcon,
   LockIcon,
@@ -26,7 +27,9 @@ export default function MobileDisplay({
           className="h-full rounded-lg flex items-center justify-center"
         >
           <div className="font-inter text-2xl font-bold uppercase flex items-center gap-2 justify-around w-full px-8">
-            <h5 className="text-black/60">21gb2</h5>
+            <h5 className="text-black/60">
+            {RGBToHEX(rgb)}
+            </h5>
             <div>
               <Button className="text-black/60" size="icon" variant={'ghost'}>
                 <CopyIcon />

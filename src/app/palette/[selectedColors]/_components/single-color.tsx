@@ -80,14 +80,14 @@ export default function SingleColor({ color }: { color: string }) {
   return (
     <section className="flex-1 flex justify-center flex-col items-center max-w-5xl mx-auto w-full  ">
       <div className="w-full p-4 flex flex-col gap-4 lg:flex-row">
-      <Card className="w-fit flex flex-col gap-4">
+      <Card className="xl:w-fit flex flex-col gap-4">
       <CardHeader
         style={{ backgroundColor: selectedColor }}
         className="w-full rounded-t-lg flex items-center justify-center font-syne text-black/70 text-md text-center font-semibold min-h-48 transition-all"
       >
         {generateName(selectedColor)}
       </CardHeader>
-      <CardContent className="w-fit flex flex-col items-center gap-4 p-4">
+      <CardContent className="w-full xl:w-fit flex flex-col items-center gap-4 p-4">
         <div className="w-fit">
           <RgbColorPicker
             color={hexToRgb(selectedColor)}

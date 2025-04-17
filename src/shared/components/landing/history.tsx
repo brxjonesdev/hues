@@ -1,7 +1,7 @@
 'use client';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import React from 'react';
-import { Button } from '../ui/button';
+import { Button } from '../shadcn/button';
 import { useRouter } from 'next/navigation';
 
 export default function History() {

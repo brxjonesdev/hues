@@ -1,40 +1,33 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { randomHexGeneration } from '@/lib/generation';
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/shared/components/shadcn/card';
+import usePaletteGeneration from '@/features/palette-generation/hooks/usePaletteGeneration';
 
 export default function GeneratePalettePage() {
   const router = useRouter();
-  const generateNewPalette = () => {
-    const colors = randomHexGeneration();
-    const palleteSlug = `/palette/${colors}`;
+  const { generateRandomHEXstring  } = usePaletteGeneration();
 
-    router.push(palleteSlug);
-  };
 
-  React.useEffect(() => {
-    generateNewPalette();
-  }, []);
+  const generatePalette = React.useCallback(() => {
+    const hexString = generateRandomHEXstring();
+    const url = `/palette/${hexString}`;
+    router.push(url);
+  }
+, [generateRandomHEXstring, router]);
 
-  const randomGenerationMessages = [
-    'Concocting a new palette for you!',
-    'These colors are going to be amazing!',
-    'Just a few more seconds...',
-    'Creating a new palette...',
-    'Almost there!',
-  ];
-  const message =
-    randomGenerationMessages[
-      Math.floor(Math.random() * randomGenerationMessages.length)
-    ];
+React.useEffect(() => {
+    generatePalette();
+}, [generatePalette]);
+
+
 
   return (
     <section
@@ -46,7 +39,9 @@ export default function GeneratePalettePage() {
           <CardTitle className="lg:text-2xl">
             Generating a Palette For You!
           </CardTitle>
-          <CardDescription>{message}</CardDescription>
+          <CardDescription>
+            We&apos;re now generating a random color palette for you. You can use it to create beautiful designs or just for fun!
+          </CardDescription>
         </CardHeader>
         <CardFooter className="flex-1 rainbow-bg rounded-b-xl"></CardFooter>
       </Card>

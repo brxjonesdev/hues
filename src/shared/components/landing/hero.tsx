@@ -1,10 +1,10 @@
 'use client';
 import { Brush } from 'lucide-react';
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/shadcn/button';
 import Link from 'next/link';
 import MiniPalette from './mini-palette';
-import { Separator } from '../ui/separator';
+import { Separator } from '../shadcn/separator';
 
 export default function Hero() {
   const palettes = [
@@ -87,44 +87,41 @@ export default function Hero() {
   ];
 
   return (
-    <div className="w-full font-inter">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-2">
-          <div className="flex gap-4 flex-col">
-            <div className="flex gap-4 flex-col">
-              <h1 className="text-5xl md:text-7xl max-w-xl tracking-tighter text-left font-inter">
-                Create{' '}
-                <span className="font-syne tracking-tight  rounded-xl text-md mix-blend-normal">
-                  beautiful
-                </span>{' '}
-                palettes with ease.
-              </h1>
-              <p className="text-md leading-relaxed tracking-tight text-muted-foreground max-w-md text-left">
-                Generate beautiful color palettes with our easy-to-use palette
-                generator. Choose from a variety of color generation methods and
-                export your palette in various formats.
-              </p>
-            </div>
-            <div className="flex flex-row gap-4">
-              <Link href="/palette/generate" className="w-fit">
-                <Button
-                  size="lg"
-                  className="gap-4 hover:rainbow-bg hover:text-black transition-all ease-in-out duration-300 w-full"
-                  variant="outline"
-                >
-                  Use our Palette Generator <Brush />
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-md aspect-square flex flex-col gap-4 h-full overflow-y-scroll w-full px-4">
-            {palettes.map((palette, index) => {
-              return <MiniPalette colors={palette} key={index} />;
-            })}
-            <Separator />
-          </div>
+    <div>
+      <div>
+      <div>
+        <div>
+        <div>
+          <h1>
+          Create{' '}
+          <span>
+            beautiful
+          </span>{' '}
+          palettes with ease.
+          </h1>
+          <p>
+          Generate beautiful color palettes with our easy-to-use palette
+          generator. Choose from a variety of color generation methods and
+          export your palette in various formats.
+          </p>
+        </div>
+        <div>
+          <Link href="/palette/generate">
+          <Button>
+            Use our Palette Generator <Brush />
+          </Button>
+          </Link>
+        </div>
+        </div>
+        <div>
+        {palettes.map((palette, index) => {
+          return <MiniPalette colors={palette} key={index} />;
+        })}
+        <Separator />
         </div>
       </div>
+      </div>
+      <footer></footer>
     </div>
   );
 }

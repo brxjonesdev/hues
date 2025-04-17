@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../ui/button';
-import { Separator } from '../ui/separator';
+import { Button } from '../shadcn/button';
+import { Separator } from '../shadcn/separator';
 import Link from 'next/link';
 
 export default function MiniPalette({
@@ -22,7 +22,7 @@ export default function MiniPalette({
               className="font-inter hover:scale-110  transition-transform duration-300"
               style={{
                 width: '100%',
-                height: '100px', // Adjust height as needed
+                height: '70px', // Adjust height as needed
                 backgroundColor: color.hexcode,
                 borderRadius: `
               ${index === 0 ? '0.5rem 0 0 0.5rem' : index === colors.length - 1 ? '0 0.5rem 0.5rem 0' : '0'}`,
@@ -43,7 +43,6 @@ export default function MiniPalette({
           </Button>
         </Link>
       </div>
-      <Separator />
     </>
   );
 }

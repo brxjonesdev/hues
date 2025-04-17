@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/shadcn/button';
 import { RGBToHEX } from '@/lib/utils/conversions';
 import {
   CopyIcon,

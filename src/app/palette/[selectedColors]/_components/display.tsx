@@ -20,17 +20,17 @@ import {
   useSortable,
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/components/shadcn/button"
 import { PlusIcon, LockIcon, Trash2, UnlockIcon, GripHorizontalIcon } from "lucide-react"
 import { nanoid } from "nanoid"
 import { useRouter } from "next/navigation"
 import { RGBToHEX } from "@/lib/utils/conversions"
 import { useSearchParams, useParams } from "next/navigation"
-import { useToast } from "@/hooks/use-toast"
-import useSpacebarEffect from "@/hooks/use-spacebar"
+import { useToast } from "@/shared/hooks/use-toast"
+import useSpacebarEffect from "@/shared/hooks/use-spacebar"
 import { randomizePalette } from "@/lib/generation"
 import SingleColor from "./single-color"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/shadcn/popover";
 import { RgbColorPicker } from "react-colorful";
 
 export type ColumnData = {
@@ -223,7 +223,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
 
     // Helper function to parse an RGB string into an object
     const parseRGB = (rgbString: string) => {
-      const match = rgbString.match(/rgb$$(\d+),\s*(\d+),\s*(\d+)$$/)
+      const match = rgbString.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/)
       if (!match) return null
       return {
         r: Number.parseInt(match[1], 10),
@@ -245,6 +245,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
     if (prevColor && nextColor) {
       const color1 = parseRGB(prevColor)
       const color2 = parseRGB(nextColor)
+      console.error("color1", color1, "color2", color2)
 
       if (color1 && color2) {
         const middle = middleColor(color1, color2)
@@ -316,7 +317,7 @@ export default function DraggableGrid({ palette }: DraggableGridProps) {
                     variant="ghost"
                     size="icon"
                     className="invisible xl:visible absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 group-hover:opacity-100 transition-all rotate-45 hover:rotate-90 rounded-full  "
-                    onClick={() => addColumn(index, columns[index - 1].rgb, columns[index].rgb)}
+                    onClick={() => addColumn(index, columns[index - 1].rgb, column.rgb)}
                     aria-label={`Add column before ${column.rgb}`}
                   >
                     <PlusIcon className="h-4 w-4" />

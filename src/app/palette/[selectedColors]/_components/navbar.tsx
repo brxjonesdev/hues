@@ -13,7 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
+} from '@/shared/components/shadcn/navigation-menu';
 import {
   Dialog,
   DialogContent,
@@ -21,11 +21,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from '@/shared/components/shadcn/dialog';
 import Visualize from './visualize';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from '@/shared/components/shadcn/separator';
 import ExportPalette from './export';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/shadcn/button';
 import { GripVerticalIcon } from 'lucide-react';
 
 const generationMethods: {

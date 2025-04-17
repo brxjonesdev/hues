@@ -6,12 +6,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
+} from '@/shared/components/shadcn/select';
+import { Label } from '@/shared/components/shadcn/label';
+import { Separator } from '@/shared/components/shadcn/separator';
 import { exportToStyles } from '@/lib/exporting';
 import { useParams } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/shadcn/button';
 
 export default function ExportPalette() {
   const [format, setFormat] = React.useState<string | null>(null);

@@ -7,11 +7,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/shared/components/shadcn/card';
 import { RGBToCMYK, RGBToHEX, RGBToHSB, RGBToHSL, RGBToLAB } from '@/lib/utils/conversions';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/shadcn/button';
 import { Copy } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from '@/shared/hooks/use-toast';
 import { generateName, getAnalagousColors, getComplementaryColors, getShades, getSplitComplementaryColors, getSquareColors, getTetradicColors, getTints, getTones, getTriadicColors } from '@/lib/utils/transformations';
 import { useRouter } from "next/navigation";
 

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/shadcn/button';
 import { PlusIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { randomizePalette } from '@/lib/generation';

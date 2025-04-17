@@ -1,8 +1,8 @@
 import '../../globals.css';
 import { ColorNavMenu } from '@/app/palette/[selectedColors]/_components/navbar';
-import History from '@/components/landing/history';
+import History from '@/shared/components/landing/history';
 import MobileMenu from './_components/mobile-menu';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/shared/components/shadcn/toaster';
 import SingleColor from './_components/single-color';
 import { HexToRGB } from '@/lib/utils/conversions';
 

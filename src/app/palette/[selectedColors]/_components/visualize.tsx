@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Label } from '@/components/ui/label';
+import { ScrollArea } from '@/shared/components/shadcn/scroll-area';
+import { Label } from '@/shared/components/shadcn/label';
 import { convertHexstring } from '@/lib/generation';
 import { applyColorBlindness } from '@/lib/accessibility';
 import { useParams } from 'next/navigation';

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Syne } from 'next/font/google';
 import '@/app/globals.css';
-import Header from '@/components/landing/header';
+import Header from '@/shared/components/landing/header';
 
 const syne = Syne({
   variable: '--font-syne',

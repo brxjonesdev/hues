@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '../shadcn/button';
-import { Separator } from '../shadcn/separator';
 import Link from 'next/link';
 
 export default function MiniPalette({

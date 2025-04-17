@@ -1,6 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
+
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 import Logo from '@/lib/blusuede.png';
 
 export default function Header() {
@@ -16,12 +17,15 @@ export default function Header() {
       </div>
       <div className="flex items-center gap-2">
         <p className="font-syne text-md">Made by</p>
-        <a href="https://portfolio.braxtonjones.dev/">
-          <img
-          alt='Braxton Jones Logo'
+        <a href="https://portfolio.braxtonjones.dev/" target="_blank" rel="noopener noreferrer">
+          <Image
+            alt="Braxton Jones Logo"
             className="aspect-square h-8 w-8 hover:rainbow-bg p-0.5 rounded-full cursor-pointer"
-            src={Logo.src}
+            src={Logo}
+            width={32}
+            height={32}
           />
+
         </a>
       </div>
     </section>

@@ -2,19 +2,19 @@
 
 I wanted a fast, no-frills tool for generating and exploring color palettes without the clutter or friction of full design tools.
 
-## Features
+#### Features
 
 * Generate random color palettes instantly
 * Copy individual hex codes to clipboard
 * Clean, responsive interface with light mode by default
 
-## Tech Stack
+#### Tech Stack
 
 * **Framework:** Next.js (React)
 * **Styling:** Tailwind CSS
 * **Language:** TypeScript
 
-## Running Locally
+#### Running Locally
 
 ```bash
 git clone https://github.com/brxjonesdev/hues.git

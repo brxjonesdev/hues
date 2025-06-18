@@ -1,13 +1,28 @@
-# Hues
+### Hues
 
-Hues is a powerful and user-friendly tool designed for creators, designers, and developers. Quickly explore random or custom palettes for design inspiration, prototyping, or personal projects.
+I wanted a fast, no-frills tool for generating and exploring color palettes without the clutter or friction of full design tools.
 
-### 🛠 Tech Stack
+## Features
 
-* **Framework**: Next.js (React)
+* Generate random color palettes instantly
+* Copy individual hex codes to clipboard
+* Clean, responsive interface with light mode by default
 
-### ✨ Features
+## Tech Stack
 
-* Generate random color palettes
-* Copy color hex codes to clipboard
-* Light and minimal UI
+* **Framework:** Next.js (React)
+* **Styling:** Tailwind CSS
+* **Language:** TypeScript
+
+## Running Locally
+
+```bash
+git clone https://github.com/brxjonesdev/hues.git
+cd hues
+npm install
+npm run dev
+```
+
+Visit `http://localhost:3000` in your browser.
+
+MIT — free to use, adapt, and build upon.
